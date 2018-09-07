@@ -6,9 +6,6 @@ class UsersController < ApplicationController
  
 
   def create
-  end
-  
-  def login
     user = User.authenticate(params[:username],params[:password])
     if user
       session[:user_id] = user.id
@@ -20,6 +17,10 @@ class UsersController < ApplicationController
       flash.now[:error] = "Invalid email or password"
       render "new"
     end
+  end
+  
+  def login
+    
       
   end
 
