@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_number: 1
+  customer: 
+  opening_balance: 1
+  active_status: false
+
+two:
+  account_number: 1
+  customer: 
+  opening_balance: 1
+  active_status: false

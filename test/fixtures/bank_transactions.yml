@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bank_account: 
+  particulars: MyString
+  transaction_type: MyString
+  transaction_amount: 1
+
+two:
+  bank_account: 
+  particulars: MyString
+  transaction_type: MyString
+  transaction_amount: 1
