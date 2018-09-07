@@ -1,8 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
-  map.resources :users
+  map.resources :users, :collection =>{:login => [:get]}
   map.resources :customers
   map.resources :employees
+  map.login 'login', :controller => 'users', :action => 'login'
 
 
   # Sample of regular route:

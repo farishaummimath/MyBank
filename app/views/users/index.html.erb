@@ -1,2 +1,15 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h3>Listing Users</h3>
+
+<table class="table table-hover">
+  <tr>
+    <th>UserName</th>
+    <th>UserType</th>
+  </tr>
+
+<% for user in @users %>
+  <tr style="color:#000;">
+      <td><%=h user.username %></td>
+      <td><%=h user.record_type %></td>
+  </tr>
+<% end %>
+</table>

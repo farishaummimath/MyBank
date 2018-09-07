@@ -4960,3 +4960,1582 @@ ActionController::RoutingError (No route matches "/resources/demos/style.css" wi
   /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
 
 Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#new (for 127.0.0.1 at 2018-09-07 17:20:43) [GET]
+  [4;36;1mCustomer Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `customers`[0m
+Rendering template within layouts/application
+Rendering customers/new
+Rendered layouts/_header (0.3ms)
+Rendered layouts/_footer (0.4ms)
+Completed in 55ms (View: 47, DB: 1) | 200 OK [http://localhost/customers/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:20:43) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#create (for 127.0.0.1 at 2018-09-07 17:23:27) [POST]
+  Parameters: {"customer"=>{"email"=>"farishaummimath@gmail.com", "middle_name"=>"", "last_name"=>"Ummimath", "contact_number"=>"1234567890", "date_of_birth(3i)"=>"7", "date_of_birth(2i)"=>"9", "date_of_birth(1i)"=>"2018", "first_name"=>"Farisha", "address"=>"Some address", "nationality"=>"India"}, "authenticity_token"=>"XiKdiYXoaBeUZZyQbe5txmPycYO7+cV5xzs1v2Scik0=", "commit"=>"Create my account"}
+  [4;35;1mCustomer Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `customers`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+
+NoMethodError (undefined method `password=' for #<User:0x7fe9a9df9f90>):
+  app/models/customer.rb:10:in `add_user'
+  app/controllers/customers_controller.rb:12:in `create'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.3ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2018-09-07 17:23:58) [GET]
+  [4;35;1mCustomer Load (0.3ms)[0m   [0mSELECT * FROM `customers` [0m
+Rendering template within layouts/application
+Rendering customers/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://localhost/customers]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:23:58) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#new (for 127.0.0.1 at 2018-09-07 17:24:07) [GET]
+  [4;36;1mCustomer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `customers`[0m
+Rendering template within layouts/application
+Rendering customers/new
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 15ms (View: 12, DB: 1) | 200 OK [http://localhost/customers/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:24:07) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#create (for 127.0.0.1 at 2018-09-07 17:24:26) [POST]
+  Parameters: {"customer"=>{"email"=>"farishaummimath@gmail.com", "middle_name"=>"", "last_name"=>"Ummimath", "contact_number"=>"121312432545", "date_of_birth(3i)"=>"7", "date_of_birth(2i)"=>"9", "date_of_birth(1i)"=>"2018", "first_name"=>"Farisha", "address"=>"dfd", "nationality"=>"India"}, "authenticity_token"=>"XiKdiYXoaBeUZZyQbe5txmPycYO7+cV5xzs1v2Scik0=", "commit"=>"Create my account"}
+  [4;35;1mCustomer Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `customers`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO `users` (`salt`, `record_id`, `encrypted_password`, `created_at`, `updated_at`, `username`, `record_type`) VALUES(NULL, NULL, NULL, '2018-09-07 11:54:26', '2018-09-07 11:54:26', 'FarishaUmmimath', NULL)[0m
+  [4;35;1mCustomer Create (0.3ms)[0m   [0mINSERT INTO `customers` (`middle_name`, `date_of_birth`, `email`, `signature_updated_at`, `photo_file_size`, `last_name`, `local_ref_contact_number`, `local_ref_address`, `contact_number`, `photo_updated_at`, `signature_file_name`, `first_name`, `created_at`, `photo_content_type`, `address`, `updated_at`, `signature_file_size`, `signature_content_type`, `nationality`, `local_ref_full_name`, `photo_file_name`) VALUES('', '2018-09-07', 'farishaummimath@gmail.com', NULL, NULL, 'Ummimath', NULL, NULL, 121312432545, NULL, NULL, 'Farisha', '2018-09-07 11:54:26', NULL, 'dfd', '2018-09-07 11:54:26', NULL, NULL, 'India', NULL, NULL)[0m
+  [4;36;1mUser Update (21.2ms)[0m   [0;1mUPDATE `users` SET `record_type` = 'Customer', `updated_at` = '2018-09-07 11:54:26', `record_id` = 1 WHERE `id` = 1[0m
+  [4;35;1mSQL (51.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/customers
+Completed in 143ms (DB: 75) | 302 Found [http://localhost/customers]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2018-09-07 17:24:26) [GET]
+  [4;36;1mCustomer Load (0.3ms)[0m   [0;1mSELECT * FROM `customers` [0m
+Rendering template within layouts/application
+Rendering customers/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 7ms (View: 3, DB: 1) | 200 OK [http://localhost/customers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:24:26) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (305.0ms)[0m   [0mCREATE TABLE `bank_accounts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `account_number` int(11), `customer_id` int(11), `opening_balance` int(11), `active_status` tinyint(1) DEFAULT 1 NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (290.8ms)[0m   [0mCREATE TABLE `bank_transactions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `bank_account_id` int(11), `particulars` varchar(255), `transaction_type` varchar(255), `transaction_amount` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (281.9ms)[0m   [0mCREATE TABLE `customers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `middle_name` varchar(255), `last_name` varchar(255), `date_of_birth` date, `nationality` varchar(255), `address` varchar(255), `email` varchar(255), `contact_number` int(11), `local_ref_full_name` varchar(255), `local_ref_contact_number` varchar(255), `local_ref_address` varchar(255), `created_at` datetime, `updated_at` datetime, `photo_file_name` varchar(255), `photo_content_type` varchar(255), `photo_file_size` int(11), `photo_updated_at` datetime, `signature_file_name` varchar(255), `signature_content_type` varchar(255), `signature_file_size` int(11), `signature_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (299.9ms)[0m   [0mCREATE TABLE `employees` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `middle_name` varchar(255), `last_name` varchar(255), `date_of_birth` date, `nationality` varchar(255), `address` varchar(255), `email` varchar(255), `contact_number` int(11), `created_at` datetime, `updated_at` datetime, `photo_file_name` varchar(255), `photo_content_type` varchar(255), `photo_file_size` int(11), `photo_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (324.2ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `encrypted_password` varchar(255), `salt` varchar(255), `record_id` int(11), `record_type` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (334.6ms)[0m   [0;1mCREATE UNIQUE INDEX `index_users_on_username` ON `users` (`username`)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (324.6ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (468.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (56.6ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907063415')[0m
+  [4;35;1mSQL (49.9ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180907060239')[0m
+  [4;36;1mSQL (49.8ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907061632')[0m
+  [4;35;1mSQL (50.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180907053401')[0m
+  [4;36;1mSQL (49.9ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907054741')[0m
+  [4;35;1mSQL (49.8ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180907054013')[0m
+  [4;36;1mSQL (49.8ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907054648')[0m
+  [4;35;1mSQL (60.3ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180906132827')[0m
+  [4;36;1mSQL (88.7ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907054729')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:32:06) [GET]
+Rendering template within layouts/application
+Rendering users/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 9ms (View: 8, DB: 0) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:32:06) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:34:46) [GET]
+Rendering template within layouts/application
+Rendering users/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.empty?) on line #2 of app/views/users/index.html.erb:
+1: <h1>Listing USers</h1>
+2: <% if @users.empty?  %>
+3: <p style="color:#900"><i>------ No users to list----</i></p>
+4: 
+5: <% else %>
+
+    app/views/users/index.html.erb:2
+    /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (67.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:35:11) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:35:11) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:35:45) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:35:45) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:35:46) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:35:46) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:38:40) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 6ms (View: 2, DB: 0) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:38:40) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:39:13) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:39:13) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:40:01) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:40:01) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:40:13) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:40:13) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:40:20) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:40:20) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:41:15) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:41:15) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2018-09-07 17:41:19) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:41:19) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#new (for 127.0.0.1 at 2018-09-07 17:41:21) [GET]
+  [4;36;1mCustomer Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `customers`[0m
+Rendering template within layouts/application
+Rendering customers/new
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://localhost/customers/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:41:21) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#create (for 127.0.0.1 at 2018-09-07 17:41:36) [POST]
+  Parameters: {"customer"=>{"email"=>"farishaummimath@gmail.com", "middle_name"=>"", "last_name"=>"Ummimath", "contact_number"=>"121446546", "date_of_birth(3i)"=>"7", "date_of_birth(2i)"=>"9", "date_of_birth(1i)"=>"2018", "first_name"=>"Farisha", "address"=>"dfdsf", "nationality"=>"India"}, "authenticity_token"=>"XiKdiYXoaBeUZZyQbe5txmPycYO7+cV5xzs1v2Scik0=", "commit"=>"Create my account"}
+  [4;35;1mCustomer Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `customers`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`salt`, `record_id`, `encrypted_password`, `created_at`, `updated_at`, `username`, `record_type`) VALUES(NULL, NULL, NULL, '2018-09-07 12:11:36', '2018-09-07 12:11:36', 'FarishaUmmimath', NULL)[0m
+  [4;35;1mCustomer Create (0.3ms)[0m   [0mINSERT INTO `customers` (`middle_name`, `date_of_birth`, `email`, `signature_updated_at`, `photo_file_size`, `last_name`, `local_ref_contact_number`, `local_ref_address`, `contact_number`, `photo_updated_at`, `signature_file_name`, `first_name`, `created_at`, `photo_content_type`, `address`, `updated_at`, `signature_file_size`, `signature_content_type`, `nationality`, `local_ref_full_name`, `photo_file_name`) VALUES('', '2018-09-07', 'farishaummimath@gmail.com', NULL, NULL, 'Ummimath', NULL, NULL, 121446546, NULL, NULL, 'Farisha', '2018-09-07 12:11:36', NULL, 'dfdsf', '2018-09-07 12:11:36', NULL, NULL, 'India', NULL, NULL)[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `record_type` = 'Customer', `updated_at` = '2018-09-07 12:11:36', `record_id` = 1 WHERE `id` = 1[0m
+[paperclip] Saving attachments.
+[paperclip] Saving attachments.
+  [4;35;1mSQL (84.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+[paperclip] Saving attachments.
+[paperclip] Saving attachments.
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/customers
+Completed in 139ms (DB: 87) | 302 Found [http://localhost/customers]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2018-09-07 17:41:36) [GET]
+  [4;36;1mCustomer Load (0.3ms)[0m   [0;1mSELECT * FROM `customers` [0m
+Rendering template within layouts/application
+Rendering customers/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 7ms (View: 3, DB: 1) | 200 OK [http://localhost/customers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:41:36) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:41:44) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 7ms (View: 3, DB: 1) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:41:44) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (300.4ms)[0m   [0mCREATE TABLE `bank_accounts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `account_number` int(11), `customer_id` int(11), `opening_balance` int(11), `active_status` tinyint(1) DEFAULT 1 NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (299.2ms)[0m   [0mCREATE TABLE `bank_transactions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `bank_account_id` int(11), `particulars` varchar(255), `transaction_type` varchar(255), `transaction_amount` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (306.8ms)[0m   [0mCREATE TABLE `customers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `middle_name` varchar(255), `last_name` varchar(255), `date_of_birth` date, `nationality` varchar(255), `address` varchar(255), `email` varchar(255), `contact_number` int(11), `local_ref_full_name` varchar(255), `local_ref_contact_number` varchar(255), `local_ref_address` varchar(255), `created_at` datetime, `updated_at` datetime, `photo_file_name` varchar(255), `photo_content_type` varchar(255), `photo_file_size` int(11), `photo_updated_at` datetime, `signature_file_name` varchar(255), `signature_content_type` varchar(255), `signature_file_size` int(11), `signature_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (298.9ms)[0m   [0mCREATE TABLE `employees` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `middle_name` varchar(255), `last_name` varchar(255), `date_of_birth` date, `nationality` varchar(255), `address` varchar(255), `email` varchar(255), `contact_number` int(11), `created_at` datetime, `updated_at` datetime, `photo_file_name` varchar(255), `photo_content_type` varchar(255), `photo_file_size` int(11), `photo_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (317.2ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `encrypted_password` varchar(255), `salt` varchar(255), `record_id` int(11), `record_type` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (358.0ms)[0m   [0;1mCREATE UNIQUE INDEX `index_users_on_username` ON `users` (`username`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (334.6ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (457.3ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (56.4ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907063415')[0m
+  [4;35;1mSQL (50.8ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180907060239')[0m
+  [4;36;1mSQL (49.9ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907061632')[0m
+  [4;35;1mSQL (49.9ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180907053401')[0m
+  [4;36;1mSQL (50.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907054741')[0m
+  [4;35;1mSQL (49.8ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180907054013')[0m
+  [4;36;1mSQL (49.9ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907054648')[0m
+  [4;35;1mSQL (112.9ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180906132827')[0m
+  [4;36;1mSQL (103.8ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907054729')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#create (for 127.0.0.1 at 2018-09-07 17:42:54) [POST]
+  Parameters: {"customer"=>{"email"=>"farishaummimath@gmail.com", "middle_name"=>"", "last_name"=>"Ummimath", "contact_number"=>"121446546", "date_of_birth(3i)"=>"7", "date_of_birth(2i)"=>"9", "date_of_birth(1i)"=>"2018", "first_name"=>"Farisha", "address"=>"dfdsf", "nationality"=>"India"}, "authenticity_token"=>"XiKdiYXoaBeUZZyQbe5txmPycYO7+cV5xzs1v2Scik0=", "commit"=>"Create my account"}
+  [4;35;1mCustomer Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `customers`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`salt`, `record_id`, `encrypted_password`, `created_at`, `updated_at`, `username`, `record_type`) VALUES(NULL, NULL, NULL, '2018-09-07 12:12:54', '2018-09-07 12:12:54', 'FarishaUmmimath', NULL)[0m
+  [4;35;1mCustomer Create (0.5ms)[0m   [0mINSERT INTO `customers` (`middle_name`, `date_of_birth`, `email`, `signature_updated_at`, `photo_file_size`, `last_name`, `local_ref_contact_number`, `local_ref_address`, `contact_number`, `photo_updated_at`, `signature_file_name`, `first_name`, `created_at`, `photo_content_type`, `address`, `updated_at`, `signature_file_size`, `signature_content_type`, `nationality`, `local_ref_full_name`, `photo_file_name`) VALUES('', '2018-09-07', 'farishaummimath@gmail.com', NULL, NULL, 'Ummimath', NULL, NULL, 121446546, NULL, NULL, 'Farisha', '2018-09-07 12:12:54', NULL, 'dfdsf', '2018-09-07 12:12:54', NULL, NULL, 'India', NULL, NULL)[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `record_type` = 'Customer', `updated_at` = '2018-09-07 12:12:54', `record_id` = 1 WHERE `id` = 1[0m
+[paperclip] Saving attachments.
+[paperclip] Saving attachments.
+  [4;35;1mSQL (95.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+[paperclip] Saving attachments.
+[paperclip] Saving attachments.
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/customers
+Completed in 118ms (DB: 99) | 302 Found [http://localhost/customers]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2018-09-07 17:42:54) [GET]
+  [4;36;1mCustomer Load (0.3ms)[0m   [0;1mSELECT * FROM `customers` [0m
+Rendering template within layouts/application
+Rendering customers/index
+Rendered layouts/_header (0.0ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 6ms (View: 2, DB: 0) | 200 OK [http://localhost/customers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:42:54) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2018-09-07 17:42:58) [GET]
+  Parameters: {"id"=>"show_pdf"}
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/users/show_pdf]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:42:59) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:43:05) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 10ms (View: 6, DB: 1) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.6ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:43:05) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:45:45) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 10ms (View: 4, DB: 1) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:45:45) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (357.6ms)[0m   [0mCREATE TABLE `bank_accounts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `account_number` int(11), `customer_id` int(11), `opening_balance` int(11), `active_status` tinyint(1) DEFAULT 1 NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (282.4ms)[0m   [0mCREATE TABLE `bank_transactions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `bank_account_id` int(11), `particulars` varchar(255), `transaction_type` varchar(255), `transaction_amount` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (316.2ms)[0m   [0mCREATE TABLE `customers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `middle_name` varchar(255), `last_name` varchar(255), `date_of_birth` date, `nationality` varchar(255), `address` varchar(255), `email` varchar(255), `contact_number` int(11), `local_ref_full_name` varchar(255), `local_ref_contact_number` varchar(255), `local_ref_address` varchar(255), `created_at` datetime, `updated_at` datetime, `photo_file_name` varchar(255), `photo_content_type` varchar(255), `photo_file_size` int(11), `photo_updated_at` datetime, `signature_file_name` varchar(255), `signature_content_type` varchar(255), `signature_file_size` int(11), `signature_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (365.6ms)[0m   [0mCREATE TABLE `employees` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `middle_name` varchar(255), `last_name` varchar(255), `date_of_birth` date, `nationality` varchar(255), `address` varchar(255), `email` varchar(255), `contact_number` int(11), `created_at` datetime, `updated_at` datetime, `photo_file_name` varchar(255), `photo_content_type` varchar(255), `photo_file_size` int(11), `photo_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (425.1ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `encrypted_password` varchar(255), `salt` varchar(255), `record_id` int(11), `record_type` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (250.5ms)[0m   [0;1mCREATE UNIQUE INDEX `index_users_on_username` ON `users` (`username`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (316.1ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (575.8ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (56.9ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907063415')[0m
+  [4;35;1mSQL (49.9ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180907060239')[0m
+  [4;36;1mSQL (49.8ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907061632')[0m
+  [4;35;1mSQL (49.9ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180907053401')[0m
+  [4;36;1mSQL (49.9ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907054741')[0m
+  [4;35;1mSQL (49.9ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180907054013')[0m
+  [4;36;1mSQL (113.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907054648')[0m
+  [4;35;1mSQL (86.1ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20180906132827')[0m
+  [4;36;1mSQL (93.4ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20180907054729')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2018-09-07 17:46:13) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:46:13) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2018-09-07 17:46:17) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:46:17) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2018-09-07 17:46:18) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:46:18) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#new (for 127.0.0.1 at 2018-09-07 17:46:19) [GET]
+  [4;35;1mCustomer Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `customers`[0m
+Rendering template within layouts/application
+Rendering customers/new
+Rendered layouts/_header (0.0ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://localhost/customers/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:46:19) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#create (for 127.0.0.1 at 2018-09-07 17:46:23) [POST]
+  Parameters: {"customer"=>{"email"=>"", "middle_name"=>"", "last_name"=>"", "contact_number"=>"", "date_of_birth(3i)"=>"7", "date_of_birth(2i)"=>"9", "date_of_birth(1i)"=>"2018", "first_name"=>"Farisha", "address"=>"", "nationality"=>"India"}, "authenticity_token"=>"XiKdiYXoaBeUZZyQbe5txmPycYO7+cV5xzs1v2Scik0=", "commit"=>"Create my account"}
+  [4;36;1mCustomer Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `customers`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering customers/new
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 29ms (View: 19, DB: 1) | 200 OK [http://localhost/customers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:46:23) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2018-09-07 17:49:23) [GET]
+  [4;35;1mCustomer Load (0.3ms)[0m   [0mSELECT * FROM `customers` [0m
+Rendering template within layouts/application
+Rendering customers/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/customers]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:49:23) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#create (for 127.0.0.1 at 2018-09-07 17:49:27) [POST]
+  Parameters: {"customer"=>{"email"=>"", "middle_name"=>"", "last_name"=>"", "contact_number"=>"", "date_of_birth(3i)"=>"7", "date_of_birth(2i)"=>"9", "date_of_birth(1i)"=>"2018", "first_name"=>"Farisha", "address"=>"", "nationality"=>"India"}, "authenticity_token"=>"XiKdiYXoaBeUZZyQbe5txmPycYO7+cV5xzs1v2Scik0=", "commit"=>"Create my account"}
+  [4;36;1mCustomer Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `customers`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering customers/new
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 83ms (View: 72, DB: 1) | 200 OK [http://localhost/customers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:49:27) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2018-09-07 17:49:46) [GET]
+  [4;35;1mCustomer Load (0.3ms)[0m   [0mSELECT * FROM `customers` [0m
+Rendering template within layouts/application
+Rendering customers/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/customers]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:49:46) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#create (for 127.0.0.1 at 2018-09-07 17:49:49) [POST]
+  Parameters: {"customer"=>{"email"=>"", "middle_name"=>"", "last_name"=>"", "contact_number"=>"", "date_of_birth(3i)"=>"7", "date_of_birth(2i)"=>"9", "date_of_birth(1i)"=>"2018", "first_name"=>"Farisha", "address"=>"", "nationality"=>"India"}, "authenticity_token"=>"XiKdiYXoaBeUZZyQbe5txmPycYO7+cV5xzs1v2Scik0=", "commit"=>"Create my account"}
+  [4;36;1mCustomer Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `customers`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering customers/new
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 70ms (View: 59, DB: 2) | 200 OK [http://localhost/customers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:49:49) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2018-09-07 17:52:10) [GET]
+  [4;35;1mCustomer Load (0.4ms)[0m   [0mSELECT * FROM `customers` [0m
+Rendering template within layouts/application
+Rendering customers/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 7ms (View: 3, DB: 1) | 200 OK [http://localhost/customers]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:52:10) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2018-09-07 17:52:13) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_header (0.0ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:52:13) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#new (for 127.0.0.1 at 2018-09-07 17:52:14) [GET]
+  [4;36;1mCustomer Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `customers`[0m
+Rendering template within layouts/application
+Rendering customers/new
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://localhost/customers/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:52:14) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#create (for 127.0.0.1 at 2018-09-07 17:52:37) [POST]
+  Parameters: {"customer"=>{"email"=>"farishaummimath@gmail.com", "middle_name"=>"fgfdg", "last_name"=>"dfgd", "contact_number"=>"dfgfdfdgfd", "date_of_birth(3i)"=>"7", "date_of_birth(2i)"=>"9", "date_of_birth(1i)"=>"2018", "first_name"=>"Farisha", "address"=>"fdg", "nationality"=>"India"}, "authenticity_token"=>"XiKdiYXoaBeUZZyQbe5txmPycYO7+cV5xzs1v2Scik0=", "commit"=>"Create my account"}
+  [4;35;1mCustomer Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `customers`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO `users` (`salt`, `record_id`, `encrypted_password`, `created_at`, `updated_at`, `username`, `record_type`) VALUES('8903ffb8ea3e297107e522a61e829089b180b23c7fb6741085104e56110d9de4', NULL, '9c5fbb6b179424bdcdb3de3d9e91167ecccf1994c18f646c230486787cef0494', '2018-09-07 12:22:37', '2018-09-07 12:22:37', 'Farishadfgd', NULL)[0m
+  [4;35;1mCustomer Create (0.3ms)[0m   [0mINSERT INTO `customers` (`middle_name`, `date_of_birth`, `email`, `signature_updated_at`, `photo_file_size`, `last_name`, `local_ref_contact_number`, `local_ref_address`, `contact_number`, `photo_updated_at`, `signature_file_name`, `first_name`, `created_at`, `photo_content_type`, `address`, `updated_at`, `signature_file_size`, `signature_content_type`, `nationality`, `local_ref_full_name`, `photo_file_name`) VALUES('fgfdg', '2018-09-07', 'farishaummimath@gmail.com', NULL, NULL, 'dfgd', NULL, NULL, 0, NULL, NULL, 'Farisha', '2018-09-07 12:22:37', NULL, 'fdg', '2018-09-07 12:22:37', NULL, NULL, 'India', NULL, NULL)[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `record_type` = 'Customer', `updated_at` = '2018-09-07 12:22:37', `record_id` = 1 WHERE `id` = 1[0m
+[paperclip] Saving attachments.
+[paperclip] Saving attachments.
+  [4;35;1mSQL (109.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+[paperclip] Saving attachments.
+[paperclip] Saving attachments.
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/customers
+Completed in 177ms (DB: 113) | 302 Found [http://localhost/customers]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomersController#index (for 127.0.0.1 at 2018-09-07 17:52:37) [GET]
+  [4;36;1mCustomer Load (0.3ms)[0m   [0;1mSELECT * FROM `customers` [0m
+Rendering template within layouts/application
+Rendering customers/index
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/customers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:52:37) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2018-09-07 17:53:50) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 17:53:50) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2018-09-07 18:01:11) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.2ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 18:01:11) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 18:02:07) [GET]
+
+ActionController::RoutingError (No route matches "/login" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 18:03:22) [GET]
+
+ActionController::RoutingError (No route matches "/login" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2018-09-07 18:03:56) [GET]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mUser Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+
+NoMethodError (undefined method `authenticate' for #<Class:0x7f03603bfc08>):
+  app/controllers/users_controller.rb:14:in `login'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+Rendered rescues/_trace (20.3ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2018-09-07 18:05:22) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`username` IS NULL) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (1.0ms)
+Completed in 25ms (View: 13, DB: 1) | 200 OK [http://localhost/users/login]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 18:05:22) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 18:05:40) [GET]
+
+ActionController::RoutingError (No route matches "/login" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2018-09-07 18:06:09) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`username` IS NULL) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 8ms (View: 2, DB: 1) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 18:06:09) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2018-09-07 18:06:50) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`username` IS NULL) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 8ms (View: 2, DB: 1) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 18:06:50) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2018-09-07 18:08:24) [GET]
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`username` IS NULL) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_header (0.0ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 13ms (View: 5, DB: 1) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 18:08:24) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2018-09-07 18:08:26) [POST]
+  Parameters: {"authenticity_token"=>"XiKdiYXoaBeUZZyQbe5txmPycYO7+cV5xzs1v2Scik0=", "password"=>"", "commit"=>"Log in", "username"=>""}
+Rendering template within layouts/application
+Rendering users/create
+Rendered layouts/_header (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2018-09-07 18:08:26) [GET]
+
+ActionController::RoutingError (No route matches "/resources/demos/style.css" with {:method=>:get}):
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/farisha/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)

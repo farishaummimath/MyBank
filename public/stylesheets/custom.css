@@ -7,7 +7,57 @@ and open the template in the editor.
     Created on : 7 Sep, 2018, 2:01:25 PM
     Author     : farisha
 */
+.error, .alert, .notice, .success, .info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
+.error, .alert {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
+.notice {background:#fff6bf;color:#514721;border-color:#ffd324;}
+.success {background:#e6efc2;color:#264409;border-color:#c6d880;}
+.info {background:#d5edf8;color:#205791;border-color:#92cae4;}
+.error a, .alert a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+.info a {color:#205791;}
+.fieldWithErrors {
+	background-color: red;
+	display: table;
+        color: #fff;
 
+}
+.fieldWithErros label {
+	color: #fff;
+}
+#errorExplanation {
+	width: 300px;
+	border: 2px solid red;
+	padding: 2px;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 5px 5px 15px;
+	font-size: 12px;
+	margin: -7px;
+	background-color: #c00;
+	color: #fff;
+}
+
+#errorExplanation p {
+	color: #333;
+	margin-bottom: 0;
+        padding: 2px;
+}
+
+
+#errorExplanation ul li {
+	font-size: 15px;
+	list-style: square;
+	font-size: 50%;
+	font-weight: bold;
+	padding: 5px;
+}
 
 /* footer */
 footer {

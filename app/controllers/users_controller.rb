@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   def index
+    @users= User.all
   end
 
-  def new
-  end
+ 
 
   def create
   end
+  
   def login
     user = User.authenticate(params[:username],params[:password])
     if user
