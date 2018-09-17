@@ -1,0 +1,28 @@
+<% if @customers.empty? %>
+<p> Invalid application number, No application found </p>
+
+<% else %>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    
+    <th>Application Number</th>
+    <th>Application Status</th>
+  </tr>
+
+<% @customers.each_with_index do |customer,i| %>
+        
+      <td><%=h customer.application_number %></td>
+      <td><%=h customer.application_status %></td>
+      <% if customer.application_status == "rejected" %>
+<td> Please visit bank branch to know the reason for rejection</td>
+      <% end %>
+      <% if customer.application_status == "approved" %>
+
+ <td> Please visit bank branch to get your account details</td>
+      <% end %>
+  </tr>
+<% end %>
+</table>
+<% end %>
+

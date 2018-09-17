@@ -1,2 +1,39 @@
-<h1>BankAccounts#index</h1>
-<p>Find me in app/views/bank_accounts/index.html.erb</p>
+<div class="breadcrumb"> 
+     <% make_breadcrumb %> 
+    <%= render_breadcrumbs %>
+</div>
+<% if permitted_to? :index, :bank_accounts %>
+
+<h4>Search Bank Accounts by</h4>
+  
+ <% form_remote_tag :url=>{:controller => "bank_accounts", :action => "show_bank_accounts"}, :class=>"form-horizontal" do %>
+  <div class="form-group">
+<%= label_tag :name%> 
+    <%= text_field_tag :name %> OR 
+  </div>  
+<div class="form-group">
+    <%= label_tag :nationality%>
+    <%= text_field_tag :nationality%> OR 
+    </div>
+<div class="form-group">
+
+    <%= label_tag :account_number%>
+
+    <%= text_field_tag :account_number%>
+<div class="form-group">
+
+    <%= submit_tag "Search" %>
+  </div>
+
+ <% end %>   
+
+<div id ="result">
+
+</div>
+   
+<%=  link_to "View Closure Requests",all_close_account_requests_bank_accounts_path %>
+</div>
+<% else %>
+
+<p>"Sorry, you are not allowed to access that page."</p>
+<% end %>

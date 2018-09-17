@@ -1,0 +1,2 @@
+      exists  db/migrate
+      create  db/migrate/20180912051520_add_current_balance_to_bank_accounts.rb

@@ -1,2 +1,59 @@
-<h1>BankAccounts#show</h1>
-<p>Find me in app/views/bank_accounts/show.html.erb</p>
+<div class="breadcrumb"> 
+     <% make_breadcrumb %> 
+    <%= render_breadcrumbs %>
+</div>
+
+<div style = "float:right;padding-top:5px;padding-bottom: 30px;padding-right: 10px">
+<% if permitted_to? :account_closure, :bank_accounts %>    
+<%= link_to "Account Closure Request", account_closure_bank_account_path ,:class =>"btn btn-danger" %>      
+<% end %>
+</div>
+    <div class="panel panel-default">
+    <div class="panel-heading"><strong>Account Details</strong></div>
+    
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td>Account Number :</td> 
+            <td><%=h @bank_account.account_number %></td>
+        </tr>
+        <tr>
+             <td>Account Status :</td> 
+          <% if @bank_account.active_status? %>
+             <td><span class="btn btn-success">ACTIVE</span> </td>
+            <% else %>
+             <td><span class="btn btn-warning"> SUSPENDED</span></td>
+                      <% end %>  
+        </tr>
+        <tr>
+            <td>Account Holder Name :</td>
+            <td><%=h @bank_account.customer.first_name%> <%=h @bank_account.customer.last_name%></td>
+        </tr>
+        <tr>
+            <td>Opening balance :</td> 
+            <td><%=h @bank_account.opening_balance %></td>
+        </tr>
+        <tr>
+            <td>Current balance :</td> 
+            <td><%=h @bank_account.current_balance %></td>
+        </tr>
+
+    </table>
+</div> 
+<div style="width:50%">
+<% if @bank_account.active_status?  %>    
+<%= link_to "Transactions",transactions_page_bank_account_path ,:class =>"btn btn-primary" %>
+<% if permitted_to? :beneficiaries_page, :bank_accounts %>
+
+  <%= link_to "Beneficiaries Requests",beneficiaries_page_bank_account_path ,:class =>"btn btn-default" %>
+<% end %>    
+    <% if current_user.is_admin? %>
+    <%= link_to "Suspend Account",suspend_account_bank_account_path ,:class =>"btn btn-primary" %>
+    <% end %>
+<% else %> 
+    <% if current_user.is_admin? %>
+
+   <%= link_to "Re activate",revert_suspend_bank_account_path ,:class =>"btn btn-default" %>
+    <% end %>
+
+<% end %>   
+</div>

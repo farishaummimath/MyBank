@@ -1,9 +1,95 @@
-<div class="center">
-<h1>Welcome to My Bank App</h1>
-<h2>
-This is the home page for the
-<a href="#">MyBank Application</a>
-sample application.
-</h2>
-<%= link_to "Register for an account!", new_customer_path, :class=> "btn btn-large btn-primary" %>
-</div>
+
+<% if !current_user %>
+  <div class="center">
+  <h1>Welcome to My Bank App</h1>
+  <h2>
+    This is the home page for the
+    <a href="#">MyBank Application</a>
+    sample application.
+  </h2>
+  <%= link_to "Register for Bank account!", new_customer_path, :class=> "btn btn-large btn-primary" %>
+  <%= link_to " Check Application status",application_status_path,:class=> "btn btn-large btn-info" %>
+
+  </div>
+<% else %>
+  <h4> 
+    Hi,<%= current_user.record.first_name %> 
+    <%= current_user.record.last_name %> !
+  </h4>
+  <% if current_user.record_type == "Employee" %>
+  <div class = "links">
+    <div class = "link-div">
+        <div class="link_heading"> 
+            <%= link_to "Manage Customer Application", customers_path %>
+        </div>
+        <div class="link_desc"> 
+           View Accounts Transactions
+        </div>
+    </div> 
+    <div class="link-div" style="float:right;margin:8px">
+        <div class="link_heading"> 
+            <%= link_to "My Profile",current_user.record %>
+        </div>
+        <div class="link_desc"> 
+            View your profile.
+         </div>
+    </div> 
+    <div class="link-div">
+        <div class="link_heading"> 
+            <%= link_to "Manage Bank Accounts",bank_accounts_path %>
+        </div>
+        <div class="link_desc"> 
+           Accounts and Transactions
+        </div>
+    </div> 
+    <div class="link-div" style="float:right;margin:8px">
+        <div class="link_heading"> 
+            <%= link_to "Employee",employees_path %>
+        </div>
+        <div class="link_desc"> 
+            View your profile.
+         </div>
+    </div> 
+  <div>
+  <% else %> 
+      <% if !current_user.record.bank_account.active_status? %>
+      <div> Your account is suspended </div>
+      <% else %>
+      
+  <div class="links">
+    <div class="link-div">
+        <div class="link_heading"> 
+            <%= link_to "View Account",current_user.record.bank_account %>
+        </div>
+        <div class="link_desc"> 
+          View Accounts
+        </div>
+    </div> 
+    <div class="link-div" style="float:right;margin:8px">
+        <div class="link_heading"> 
+           <%= link_to "My Profile",current_user.record %>
+        </div>
+        <div class="link_desc"> 
+          View your profile.
+        </div>
+    </div> 
+    <div class="link-div">
+        <div class="link_heading"> 
+           <%= link_to "Manage Beneficiaries",beneficiaries_customer_path(current_user.record) %>
+        </div>
+        <div class="link_desc"> 
+     Manage Beneficiaries
+        </div>
+    </div> 
+     
+
+  </div>
+      <% end %>
+  <% end %>
+<% end %>       
+       
+       
+       
+       
+       
+

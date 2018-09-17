@@ -9,22 +9,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180907063415) do
+ActiveRecord::Schema.define(:version => 20180914095239) do
 
   create_table "bank_accounts", :force => true do |t|
-    t.integer  "account_number"
+    t.integer  "account_number",  :limit => 8
     t.integer  "customer_id"
     t.integer  "opening_balance"
-    t.boolean  "active_status",   :default => true, :null => false
+    t.boolean  "active_status",                :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "current_balance",              :default => 0
   end
+
+  add_index "bank_accounts", ["account_number"], :name => "index_bank_accounts_on_account_number", :unique => true
 
   create_table "bank_transactions", :force => true do |t|
     t.integer  "bank_account_id"
     t.string   "particulars"
     t.string   "transaction_type"
     t.integer  "transaction_amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "balance",            :null => false
+  end
+
+  create_table "beneficiaries", :force => true do |t|
+    t.string   "beneficiary_name"
+    t.integer  "from_bank_account_id"
+    t.integer  "to_bank_account_id"
+    t.string   "status",               :default => "pending"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "closure_requests", :force => true do |t|
+    t.integer  "bank_account_id"
+    t.string   "reason"
+    t.string   "approval_status", :default => "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,6 +72,8 @@ ActiveRecord::Schema.define(:version => 20180907063415) do
     t.string   "signature_content_type"
     t.integer  "signature_file_size"
     t.datetime "signature_updated_at"
+    t.string   "application_number"
+    t.string   "application_status",       :default => "pending"
   end
 
   create_table "employees", :force => true do |t|
@@ -78,6 +101,8 @@ ActiveRecord::Schema.define(:version => 20180907063415) do
     t.string   "record_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_admin",           :default => false
+    t.boolean  "is_active",          :default => false
   end
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true

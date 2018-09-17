@@ -1,2 +1,61 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<div class="breadcrumb"> 
+     <% make_breadcrumb %> 
+    <%= render_breadcrumbs %>
+</div>
+
+<h4>Customer Profile</h4>
+<div id = "image">
+    <div class="sidebar round"><%= image_tag @customer.photo.url(:medium) %></div>
+
+</div>    
+<div id ="info">
+    <div class="field">Username: <%=@customer.user.username%></div>
+    <div class="field">First Name: <%=@customer.first_name%></div>
+    <div class="field">Last Name: <%=@customer.last_name%></div>
+    <div class="field">Date of Birth: <%=@customer.date_of_birth%></div>
+    <div class="field">Contact Number: <%=@customer.contact_number%></div>
+    <div class="field">Email: <%=@customer.email%></div>
+    <div class="field">Nationality: <%=@customer.nationality%></div>
+    <p>
+        <strong style="color:black"> File attached : 
+            <%= @customer.photo_file_name %> 
+            <%= link_to 'Download',@customer.photo.url %>
+        </strong>
+    </p>
+    <p>
+        <strong style="color:black"> Signature attached : 
+<%= image_tag @customer.signature.url(:medium)%>
+        </strong> 
+    </p>
+        <div>
+          <%= link_to 'Edit Profile', edit_customer_path(@customer),
+            :class => "add_button round" %>
+        </div>
+        
+        <% if @customer.application_status == "rejected" || @customer.application_status == "approved"  %>  
+        <% if permitted_to? :revert, :customers %>
+
+        <div>
+        <%= link_to " Revert",revert_customer_path(@customer),
+        :class=> "btn btn-warning" %>
+        </div>
+        <% end %>
+        <% else %>
+        <div> 
+                   <% if permitted_to? :approve, :customers %>
+
+          <%= link_to "Approve", approve_customer_path(@customer),
+            :class=> "btn btn-large btn-success" %>
+                <% end %>
+
+    <% if permitted_to? :reject, :customers %>
+
+          <%= link_to " Reject",reject_customer_path(@customer),
+            :class=> "btn btn-large btn-danger" %>
+        </div>
+        <% end %>
+            <% end %>
+
+
+
+</div>

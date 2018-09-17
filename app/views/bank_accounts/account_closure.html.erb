@@ -1,0 +1,10 @@
+<h3> Account closure request </h3>
+<% form_for :close_account_request,:url=> close_requests_bank_accounts_path, :method => 'post' do |f|%>
+ <div class="form-group">
+  <%= f.label :reason, " Reason for closure" %>
+  <%= f.text_field :reason %>
+  <%= f.hidden_field :bank_account_id, :value => params[:id] %>
+     
+  <%= f.submit "Send Request" %>
+ </div>   
+  <% end %>

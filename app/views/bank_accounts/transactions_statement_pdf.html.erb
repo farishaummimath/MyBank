@@ -1,0 +1,67 @@
+<table class="table table-bordered table-hover">
+        <tr>
+            <td>Account Number :</td> 
+            <td><%=h @bank_account.account_number %></td>
+        </tr>
+        <tr>
+             <td>Account Status :</td> 
+          <% if @bank_account.active_status? %>
+             <td><span class="btn btn-success">ACTIVE</span> </td>
+            <% else %>
+             <td><span class="btn btn-warning"> SUSPENDED</span></td>
+                      <% end %>  
+        </tr>
+        <tr>
+            <td>Account Holder Name :</td>
+            <td><%=h @bank_account.customer.first_name%> <%=h @bank_account.customer.last_name%></td>
+        </tr>
+        <tr>
+            <td>Opening balance :</td> 
+            <td><%=h @bank_account.opening_balance %></td>
+        </tr>
+        <tr>
+            <td>Current balance :</td> 
+            <td><%=h @bank_account.current_balance %></td>
+        </tr>
+
+    </table>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Transaction History</strong></div>
+<% if @transactionss.empty? %>
+    <div class="panel-heading">No Transactions </div>
+    <% else %>
+<table class="table table-bordered table-hover">
+    <tr>
+    <th>Sl No</th>
+    <th>Date</th>
+    <th>Particulars</th>
+    <th>Amount</th>
+    <th>Cr/Dr</th>
+    <th>Balance</th>
+  </tr>
+   <% @transactionss.each_with_index do |transaction,i| %>
+   <tr style="color:#000;">
+<td><%=h (i+1) %></td>
+<td><%=h transaction.created_at.strftime("%d-%m-%Y") %></td>
+<td><%=h transaction.particulars %></td>
+<td><%=h transaction.transaction_amount %></td>
+<td><%=h transaction.transaction_type %></td>
+<td><%=h transaction.balance %></td>
+
+  </tr>
+<% end %>
+  <% end %>
+</table>
+    <% if @c == "Customer" %>
+<footer class="container-fluid bg-4 text-center">
+  <p>Disclaimer: This statement is system generated, doesn’t require any signature from bank or bank officials.</p> 
+</footer> 
+<% else %>
+   <footer class="container-fluid bg-4 text-center">
+  <p>Bank Manager / Bank Authorized Signature</p>
+   <div style="height: 50px;  width: 155px;  border: 2px solid;background-color: none;"></div>
+
+</footer>
+    <% end %>
+</div>

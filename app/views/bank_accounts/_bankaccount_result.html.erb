@@ -1,0 +1,28 @@
+<table class="table table-bordered table-hover">
+ 
+  <tr>
+    <th>Sl No</th>
+    <th>Bank Account Number</th>
+    <th>Customer ID</th>
+    <th>Opening balance</th>
+    <th>Current balance</th>
+
+  </tr>
+
+<% @bank_accounts.each_with_index do |bank_account,i| %>
+  <tr style="color:#000;">
+            <td><%=h (i+1) %></td>
+
+      <td><%=h bank_account.account_number %></td>
+            <td><%=h bank_account.customer_id %></td>
+
+      <td><%=h bank_account.opening_balance %></td>
+      <td><%=h bank_account.current_balance %></td>
+      <td><%=link_to "View" ,bank_account %></td>
+      <td><%=link_to "Delete",bank_account,:confirm => 'Are you sure?', :method => :delete %></td>
+
+
+  </tr>
+<% end %>
+</table>
+

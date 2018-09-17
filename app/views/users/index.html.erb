@@ -1,15 +1,28 @@
 <h3>Listing Users</h3>
 
-<table class="table table-hover">
+<table class="table table-bordered table-hover">
   <tr>
-    <th>UserName</th>
+    <th>Username</th>
     <th>UserType</th>
+    <th> Is Admin?</th>
+    <th> Active/Inactive</th>
   </tr>
 
 <% for user in @users %>
   <tr style="color:#000;">
       <td><%=h user.username %></td>
       <td><%=h user.record_type %></td>
+      <td><%=h user.is_admin %></td>
+      <% if user.is_active %>
+      <td> ACTIVE</td>
+      <% else %>
+      <td> INACTIVE</td>
+      <% end %>
+
+      <td><%=link_to "View" ,user %></td>
+      <td><%=link_to "Delete",user,:confirm => 'Are you sure?', :method => :delete %></td>
+
+
   </tr>
 <% end %>
 </table>

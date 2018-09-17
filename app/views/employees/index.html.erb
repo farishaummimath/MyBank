@@ -1,2 +1,37 @@
-<h1>Employees#index</h1>
-<p>Find me in app/views/employees/index.html.erb</p>
+<div class="breadcrumb"> 
+     <% make_breadcrumb %> 
+    <%= render_breadcrumbs %>
+</div>
+ 
+
+<% if permitted_to? :index, :bank_accounts %>
+
+<h3>Listing Employees</h3>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Sl No</th>
+    <th>Employee Name</th>
+    <th>Username</th>
+    <th>Is Admin?</th>
+  </tr>
+
+<% @employees.each_with_index do |employee,i| %>
+  <tr style="color:#000;">
+            <td><%=h (i+1) %></td>
+
+      <td><%=h employee.first_name %> <%=h employee.last_name %></td>
+      <td><%=h employee.user.username %></td>
+      <td><%=h employee.user.is_admin? %></td>
+      <td><%=link_to "View" ,employee %></td>
+      <td><%=link_to "Delete",employee,:confirm => 'Are you sure?', :method => :delete %></td>
+
+
+  </tr>
+<% end %>
+</table>
+<%= link_to "Add New Employee", new_employee_path, :class=> "btn btn-large btn-primary" %>
+      <% else %>
+
+<p>"Sorry, you are not allowed to access that page."</p>
+<% end %>

@@ -1,0 +1,51 @@
+<div class="breadcrumb"> 
+     <% make_breadcrumb %> 
+    <%= render_breadcrumbs %>
+</div>
+<h2>Beneficiaries</h2>
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Beneficiary Requests History</strong></div>
+
+<table class="table table-bordered table-hover">
+    <% if @beneficiaries.empty? %>
+    <tr><td>No Beneficiaries added </td></tr>
+    <% else %>
+    <tr>
+    <th>Sl No</th>
+    <th>Beneficiary added date</th>
+    <th>Bank Account Number</th>
+    <th>Beneficiary Name</th>
+    <th> Status</th>
+  </tr>
+   <% @beneficiaries.each_with_index do |ben,i| %>
+   <tr style="color:#000;">
+<td><%=h (i+1) %></td>
+<td><%=h ben.created_at.strftime("%d-%m-%Y") %></td>
+<td><%=h ben.to_bank_account.account_number %></td>
+<td><%=h ben.beneficiary_name %></td>
+<td><% if ben.status == "pending" %> 
+    Pending for Approval 
+    <% else %>  
+      <%=  ben.status.upcase %>
+    <% end %> 
+</td>
+<% if permitted_to? :approve_reject_beneficiaries, :customers %>
+<td>
+            <div> 
+ <% form_for :approve_reject,:url=> approve_reject_beneficiaries_customer_path, :method => 'post' do |f|%>
+ <div class="form-group">
+  <%= f.select :status, options_for_select([["Choose",nil],"Approve", "Reject"])%>
+  <%= f.hidden_field :beneficary_account, :value => ben.id %> 
+  <%= f.submit "Submit" %>
+<% end %>
+ </div> 
+        </div>
+</td>
+<% end %>
+
+  </tr>
+<% end %>
+  <% end %>
+</table>
+    
+</div>

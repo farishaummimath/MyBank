@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bank_account: 
+  reason: MyString
+  approval_status: MyString
+
+two:
+  bank_account: 
+  reason: MyString
+  approval_status: MyString

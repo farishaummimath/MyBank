@@ -1,0 +1,29 @@
+
+<div class="panel-heading"><strong>Transaction History</strong></div>
+<% if @transactions.empty? %>
+    <div class="panel-heading">No Transactions </div>
+    <% else %>
+<table class="table table-bordered table-hover">
+    <tr>
+    <th>Sl No</th>
+    <th>Date</th>
+    <th>Particulars</th>
+    <th>Amount</th>
+    <th>Cr/Dr</th>
+    <th>Balance</th>
+  </tr>
+   <% @transactions.each_with_index do |transaction,i| %>
+   <tr style="color:#000;">
+<td><%=h (i+1) %></td>
+<td><%=h transaction.created_at.strftime("%d-%m-%Y") %></td>
+<td><%=h transaction.particulars %></td>
+<td><%=h transaction.transaction_amount %></td>
+<td><%=h transaction.transaction_type %></td>
+<td><%=h transaction.balance %></td>
+
+  
+<% end %>
+  <% end %>
+</table>
+<%= link_to "Download PDF",my_transactions_statements_bank_accounts_path(:id => @bank_account.id,:start_date =>params[:start_date],:end_date =>params[:end_date]),:class =>"btn btn-primary" %>
+<%= link_to "Download CSV",export_statement_csv_bank_accounts_path(:id => @bank_account.id,:start_date =>params[:start_date],:end_date =>params[:end_date]),:class =>"btn btn-primary" %>

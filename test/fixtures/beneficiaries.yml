@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  beneficiary_name: MyString
+  from_bank_account: 
+  to_bank_account: 
+  status: MyString
+
+two:
+  beneficiary_name: MyString
+  from_bank_account: 
+  to_bank_account: 
+  status: MyString

@@ -59,28 +59,64 @@ and open the template in the editor.
 	padding: 5px;
 }
 
+#image{
+    width:40%;
+    float:right
+}
+#info{
+    width:50%;
+    
+    
+}
+.links{
+    width: 700px;
+    margin: 0px auto;
+}
+.link-div {
+    margin: 10px 40px;
+    width: 275px;
+    float: left;
+    height: 80px;
+}
+.link_desc {
+    margin-top: 5px;
+    color: #666;
+    text-align: justify;
+    font-size: 14px;
+}
+
 /* footer */
-footer {
-margin-top: 45px;
-padding-top: 5px;
-border-top: 1px solid #eaeaea;
-color: #999;
-}
-footer a {
-color: #555;
-}
-footer a:hover {
-color: #222;
-}
-footer small {
-float: left;
-}
+
 footer ul {
-float: right;
+    
 list-style: none;
 }
 footer ul li {
 float: left;
 margin-left: 10px;}
 
+footer {
+    position: fixed;
+   bottom: 0;
+}
 
+.breadcrumb {
+color: #205791;
+font-size: 13px;
+margin-bottom: 35px;
+margin-left: 0px !important;
+background:none;
+    margin-top: -15px;
+}
+
+.bread-crumb-separator {
+color: #666666;
+margin-left: 5px;
+margin-right: 5px;
+float: left;
+}
+.breadcrumb a {
+    color: #666666;
+    text-decoration: none;
+    float: left;
+}

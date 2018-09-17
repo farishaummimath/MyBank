@@ -1,0 +1,52 @@
+<div class="breadcrumb"> 
+     <% make_breadcrumb %> 
+    <%= render_breadcrumbs %>
+</div>
+<% if permitted_to? :withdraw_deposit, :bank_accounts %>
+<h3>Withdraw/Deposit</h3>
+<% form_tag withdraw_deposit_bank_account_path, :method => 'post' do %>
+ <div class="form-group">
+    <%= label_tag :amount, "Enter Amount" %>
+    <%= text_field_tag :amount %>
+ 
+     <%= select_tag :trans_type, options_for_select([["Choose",nil],"Withdraw", "Deposit"]) %>
+   
+    <%= submit_tag "Submit" %>
+ </div>  
+<% end %>
+<% end %>
+
+<h3> Transfer to Beneficiary accounts</h3>
+
+<% form_for :transfer,:url=> transfer_bank_account_path, :method => 'post' do |f|%>
+ <div class="form-group">
+  <%= f.label :amount, "Enter Amount to be transferred" %>
+  <%= f.text_field :amount %>
+  <%= f.select :to_bank_account, options_for_select(@beneficiaries.map {|c| [(c.beneficiary_name),c.id]}),{:include_blank => "Choose Beneficiary"}%>
+  <%= f.submit "Submit" %>
+
+ </div>   
+  
+<% end %>
+
+<h4>Search Statements</h4>
+  
+ <% form_remote_tag :url=>{:controller => "bank_accounts", :action => "customer_transactions_statement"}, :class=>"form-horizontal" do %>
+  <div class="form-group">
+    <%= label_tag :start_date%>
+    <%= date_select :start_date ,{} %>
+    <%= label_tag :end_date %>
+    <%= date_select :end_date, {} %>
+
+    <%= submit_tag "Search" ,:class => "btn btn-primary" %>
+  </div>
+
+ <% end %> 
+
+<div id ="statements">
+
+</div>
+
+
+
+

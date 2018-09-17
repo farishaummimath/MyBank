@@ -1,0 +1,43 @@
+<div class="breadcrumb"> 
+     <% make_breadcrumb %> 
+    <%= render_breadcrumbs %>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><strong> Account Closure Requests History</strong></div>
+<% if @requests.empty? %>
+    <div class="panel-heading">No Requests </div>
+    <% else %>
+<table class="table table-bordered table-hover">
+    <tr>
+    <th>Sl No</th>
+    <th>Requested Date</th>
+    <th>Bank Account Number</th>
+    <th>Customer Name</th>
+    <th>Reason</th>
+    <th>Status</th>
+  </tr>
+   <% @requests.each_with_index do |req,i| %>
+   <tr style="color:#000;">
+<td><%=h (i+1) %></td>
+<td><%=h req.created_at.strftime("%d-%m-%Y") %></td>
+<td><%=h req.bank_account.account_number %></td>
+<td><%=h req.bank_account.customer.first_name %> <%=h req.bank_account.customer.last_name %></td>
+<td><%=h req.reason %></td>
+<td><%=h req.approval_status %></td>
+<td><% if req.approval_status.downcase == "pending" %>
+  <%= link_to "Approve", approve_closure_bank_account_path(req.bank_account.id),
+            :class=> "btn btn-large btn-success" %> 
+  <%= link_to "Reject",reject_closure_bank_account_path(req.bank_account.id),
+            :class=> "btn btn-large btn-danger" %>
+    <% else %>
+    <%= link_to "Revert", revert_closure_bank_account_path(req.bank_account.id),:class=> "btn btn-default" %>
+    <% end %>
+    
+</td>
+
+  </tr>
+<% end %>
+  <% end %>
+</table>
+    
+</div>

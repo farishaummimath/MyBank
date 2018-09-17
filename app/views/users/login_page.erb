@@ -1,0 +1,14 @@
+<h1>Log in</h1>
+<% form_for :user, :url => {:controller => "users",:action => "login"} do |f|  %>
+<div class="row">
+  <div class="span6 offset3">  
+              <%= f.label :username, "Username" %><br>
+              <%= f.text_field :username ,:class => "form-control", :placeholder => "Enter username"%>
+       
+
+              <%= f.label :password, "Password"%><br />
+              <%= f.password_field :password,:class => "form-control", :placeholder => "Enter password" %>
+          <p><%= f.submit "Log in",  :class => "btn btn-success"%>
+<%  end %>
+  </div>
+</div>
