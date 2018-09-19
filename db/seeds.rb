@@ -49,4 +49,4 @@
 country_list.each do |name|
   Nationality.create( :name => name)
 end
-=end
+#=end

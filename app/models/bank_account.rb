@@ -4,16 +4,12 @@ class BankAccount < ActiveRecord::Base
   has_one :closure_request
   has_many :beneficiaries, :foreign_key => 'from_bank_account_id'
   has_many :beneficiary_accounts, :through => :beneficiaries, :source => :to_bank_account
-  attr_accessible :account_number,:current_balance
+  #attr_accessible :account_number,:current_balance
+  named_scope :search_name, lambda{|name| {:joins => :customer,:conditions => ["customers.first_name LIKE ?", "%#{name}%"]}}
+  named_scope :search_nationality, lambda{|nat| {:joins => :customer,:conditions => ["customers.nationality = ?",nat]}}
+  named_scope :search_account_number, lambda{|acc| {:conditions => ["account_number = ?","#{acc}"]}}
   
   
-  def self.search_account(name,nationality,acc_num)
-    if name && nationality && acc_num
-      where('customer.first_name LIKE ? AND customer.nationality = ? AND customer.bank_account.account_number = ? ', "%#{name}%","#{nationality}","#{acc_num}")
-    end
-    
-    
-  end
   def self.search(account_number)
     if account_number
       find_by_account_number(account_number)
@@ -21,58 +17,69 @@ class BankAccount < ActiveRecord::Base
       return nil
     end
   end
-  def self.withdraw(amount,ba_id)
-    bank_account = BankAccount.find_by_id(ba_id)
-    curr=bank_account.current_balance
-    if(bank_account.current_balance >= amount.to_i)
-      bank_account.update_attributes(:current_balance =>curr-amount.to_i)
-      tran = BankTransaction.new
-      tran.bank_account_id = bank_account.id
-      tran.transaction_type = "Dr"
-      tran.transaction_amount = amount.to_i 
-      tran.balance = bank_account.current_balance     
-      tran.particulars = "withdrawal of #{tran.transaction_amount} from BANK"  
-
-      tran.save 
+  def self.search(a,b,c)
+    if a.present? || b.present? || c.present?
+      puts b.present?
+      x = self
+      x = x.search_name(a) if a.present?
+      x = x.search_nationality(b) if b.present?
+      x = x.search_account_number(c) if c.present?
+      return x
     else
-      raise "Available balance low"
+      return nil
     end  
-    return tran     
-    
   end
+
+  def self.withdraw(amount,ba_id)    
+    ActiveRecord::Base.transaction do
+      if amount.present?
+       @bank_account = BankAccount.find_by_id(ba_id)
+       curr=@bank_account.current_balance
+        if(@bank_account.current_balance >= amount.to_i)
+          if @bank_account.update_attributes(:current_balance => curr - amount.to_i)
+            @tran = BankTransaction.new(
+              :bank_account_id => @bank_account.id ,
+              :transaction_type => "Dr",
+              :transaction_amount => amount.to_i,
+              :particulars =>"Withdrawal #{amount} from BANK",
+              :balance => @bank_account.current_balance) 
+            if @tran.save
+              return @tran
+            else     
+              raise 'Error'
+            end  
+          end      
+        end                 
+      end
+      raise ActiveRecord::Rollback 
+    end
+  end  
+  
   def self.deposit(amount,ba_id)
-    bank_account = BankAccount.find_by_id(ba_id)
-    curr=bank_account.current_balance
-    bank_account.update_attributes(:current_balance =>curr+amount.to_i)
-    tran = BankTransaction.new
-    tran.bank_account_id = bank_account.id
-    tran.transaction_type = "Cr"
-    tran.transaction_amount = amount.to_i  
-    tran.particulars = "Deposited #{tran.transaction_amount} from BANK"  
-    tran.balance = bank_account.current_balance 
-    tran.save  
+    @bank_account = BankAccount.find_by_id(ba_id)
+    curr= @bank_account.current_balance
+    ActiveRecord::Base.transaction do
+      if amount.present?
+        if @bank_account.update_attributes(:current_balance => curr + amount.to_i)    
+          @tran = BankTransaction.new(:bank_account_id => @bank_account.id ,
+          :transaction_type => "Cr",
+          :transaction_amount => amount.to_i,
+          :particulars =>"Deposited #{amount} from BANK",:balance => @bank_account.current_balance) 
+          if @tran.save
+            return @tran
+          end
+        end
+      end
+          raise ActiveRecord::Rollback 
 
-    return tran
+    end  
   end
-  def self.transfer(from_id,to_id,amount)
-   
-   w = withdraw(amount,from_id)
-    
-   d = deposit(amount,to_id) 
-   
-   w.particulars  ="deposited to XXXXX#{d.bank_account.customer.first_name}"
-   w.save
-   d.particulars ="Transferred from XXXX#{w.bank_account.customer.first_name}"
-   d.save
  
+  def self.transfer(from_id,to_id,amount)
+      w = withdraw(amount,from_id)
+      d = deposit(amount,to_id)    
+      w.update_attributes(:particulars => "deposited to XXXXX#{d.bank_account.customer.first_name}")
+      d.update_attributes(:particulars => "Transferred from XXXX#{w.bank_account.customer.first_name}")   
   end
   
-  def account_closure
-    
-  end
-  
-  def account_suspend
-    
-  end
-
 end

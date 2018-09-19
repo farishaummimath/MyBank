@@ -10,34 +10,17 @@ class BankAccountsController < ApplicationController
   end
   
   def show_bank_accounts
-      @bank_accounts=[]
-      if  !params[:name].empty? && !params[:nationality].empty? && 
-          !params[:account_number].empty?      
-        @bank_accounts = BankAccount.all(
-          :joins =>['JOIN customers ON customers.id = bank_accounts.customer_id'],
-          :conditions=> ['account_number = ? OR first_name LIKE ? OR nationality = ?',
-            "#{params[:account_number]}","%#{params[:name]}%",params[:nationality]])
-      elsif !params[:name].empty?
-        @bank_accounts = BankAccount.all(
-          :joins =>['JOIN customers ON customers.id = bank_accounts.customer_id'],
-          :conditions=> ['first_name LIKE ?',"%#{params[:name]}%"])
-      elsif !params[:nationality].empty?
-        @bank_accounts = BankAccount.all(
-          :joins =>['JOIN customers ON customers.id = bank_accounts.customer_id'],
-          :conditions=> ['nationality = ?',"#{params[:nationality]}"])
-       
-      elsif !params[:account_number].empty?
-
-        @bank_accounts = BankAccount.all(
-          :joins =>['JOIN customers ON customers.id = bank_accounts.customer_id'],
-          :conditions=> ['account_number = ?',"#{params[:account_number]}"])
+      @bank_accounts = BankAccount.search(params[:name], params[:nationality], params[:account_number])
+      if @bank_accounts.present?
+        render :update do |page|
+              page.replace_html :result, :partial => 'show_bank_accounts', :locals =>{:bank_accounts =>@bank_accounts}
+        end
       else
-        flash.now[:notice]= "Input notreceived"        
-      end 
-      render :update do |page|
-          page.replace_html :result, :partial => 'show_bank_accounts', :locals =>{:bank_accounts =>@bank_accounts}
-      end
-    end
+        render :update do |page|
+              page.replace_html :result, "<p>No data </p>"
+        end
+      end  
+  end
  
   def show
     
@@ -86,11 +69,11 @@ class BankAccountsController < ApplicationController
   end
   
   def withdraw_deposit
-    if params[:trans_type] == "Deposit"
-      @transaction = BankAccount.deposit(params[:amount],params[:id])             
-    else    
-      @transaction = BankAccount.withdraw(params[:amount],params[:id])
-    end  
+    
+      @transaction = BankAccount.deposit(params[:amount],params[:id])  if params[:trans_type] == "Deposit"           
+   
+      @transaction = BankAccount.withdraw(params[:amount],params[:id]) if params[:trans_type] == "Withdraw" 
+      
     if @transaction
       flash[:success] = "Transaction  successful"
     else
@@ -148,10 +131,9 @@ class BankAccountsController < ApplicationController
     @user = @bank_account.customer.user
     @request = @bank_account.closure_request
     if @request.approval_status == "pending"
-      @request.approval_status = "Approved"
-      @bank_account.active_status = false
-      @user.is_active =false
-      if @request.save && @bank_account.save && @user.save
+      if @request.update_attributes(:approval_status => "Approved") && 
+          @bank_account.update_attributes(:active_status => false)  &&
+          @user.update_attributes(:is_active => false)
        flash[:success] = "Application approved."
       else
         flash[:error] = "Closure cannot  be done"
@@ -225,7 +207,7 @@ class BankAccountsController < ApplicationController
     
   end
    
-  protected
+  private
   
   def search_statement_by_date
     start_params = params[:start_date]
