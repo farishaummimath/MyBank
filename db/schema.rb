@@ -9,15 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180914095239) do
+ActiveRecord::Schema.define(:version => 20180918065738) do
 
   create_table "bank_accounts", :force => true do |t|
-    t.integer  "account_number",  :limit => 8
     t.integer  "customer_id"
     t.integer  "opening_balance"
     t.boolean  "active_status",                :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_number",  :limit => 8
     t.integer  "current_balance",              :default => 0
   end
 
@@ -91,6 +91,12 @@ ActiveRecord::Schema.define(:version => 20180914095239) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "nationalities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

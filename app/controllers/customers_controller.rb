@@ -8,6 +8,7 @@ class CustomersController < ApplicationController
 
   def new
     @customer= Customer.new()
+    @nationalities = Nationality.all
   end
 
   def create
@@ -89,33 +90,21 @@ class CustomersController < ApplicationController
   def beneficiaries
     
     @bank_account = current_user.record.bank_account
-    p @bank_account
-    @beneficiaries = @bank_account.beneficiaries    
-      
-    p @beneficiaries
+    @beneficiaries = @bank_account.beneficiaries         
     
   end
   
   def create_beneficiary
     @bank_account = current_user.record.bank_account
-    puts "PARAMS ::#{params[:beneficiary][:to_bank_account].inspect}"
     @to_bank_account = BankAccount.search(params[:beneficiary][:to_bank_account])
-    puts "#{@to_bank_account.inspect}"
     @account = @bank_account.beneficiary_accounts    
      
     if !@to_bank_account.nil? && !@account.find_by_account_number(params[:beneficiary][:to_bank_account]).present?  
-      puts "1111%%%%%%%%%%%%%%%555"
       @beneficiary = @bank_account.beneficiaries.new(:beneficiary_name => params[:beneficiary][:beneficiary_name])
-      p @beneficiary
-
-
       @beneficiary.to_bank_account = @to_bank_account
-      p @beneficiary
       @beneficiary.save
-      puts "22222222%%%%%%%%%%%%%%%555"
 
       if @beneficiary.save
-        puts "SAVEDDD"
           
         flash[:success] = "Beneficiary addition request sent"
         redirect_to beneficiaries_customer_path
@@ -124,7 +113,6 @@ class CustomersController < ApplicationController
         redirect_to :action => 'beneficiaries'
       end 
     else
-      puts "444%%%%%%%%%%%%%%%555"
 
       flash[:error] = "Invalid beneficiary account number or Beneficiary already added"
       redirect_to :back
@@ -134,14 +122,10 @@ class CustomersController < ApplicationController
   end
   
   def  approve_reject_beneficiaries
-    puts "PARAMS ::--#{params[:approve_reject][:status].inspect}"
     
     @bank_account = BankAccount.find_by_id(params[:id])
     @beneficiary = @bank_account.beneficiaries.find(params[:approve_reject][:beneficary_account])
-    
-    p "SOMEEEEE"
-    p @beneficiary
-
+   
     if params[:approve_reject][:status] == "Approve"
       
       @beneficiary.status = "approved"

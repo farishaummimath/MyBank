@@ -29,6 +29,10 @@ Gretel::Crumbs.layout do
     link "Add Employees", {:controller => "employees", :action => "new"}
     parent :employees_index
   end
+  crumb :employees_create do
+    link "Add Employees", {:controller => "employees", :action => "create"}
+    parent :employees_index
+  end
   crumb :bank_accounts_index do
     link "Bank Accounts", {:controller => "bank_accounts", :action => "index"}
     parent :root

@@ -3,7 +3,7 @@
  <div class="form-group">
   <%= f.label :reason, " Reason for closure" %>
   <%= f.text_field :reason %>
-  <%= f.hidden_field :bank_account_id, :value => params[:id] %>
+  <%= f.hidden_field :bank_account_id, :value => "#{params[:id]}" %>
      
   <%= f.submit "Send Request" %>
  </div>   

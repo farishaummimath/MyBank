@@ -60,6 +60,4 @@ class Customer < ActiveRecord::Base
       return nil
     end
   end
- 
-  
-end
+ end

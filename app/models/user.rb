@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
       
   end
   
-  
+  private
   
 		def encrypt_password
       self.salt = make_salt  if new_record?
@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
 		end
 
 		def encrypt(string)
-			secure_hash("#{salt}#string") # temp implementation
+			secure_hash("#{salt}#{string}") # temp implementation
 		end
 
 		def make_salt

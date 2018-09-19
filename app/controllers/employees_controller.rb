@@ -8,6 +8,7 @@ class EmployeesController < ApplicationController
 
   def new
     @employee= Employee.new
+    @nationalities = Nationality.all
   end
 
   def create

@@ -28,7 +28,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading"><strong>Transaction History</strong></div>
-<% if @transactionss.empty? %>
+<% if @transactions.empty? %>
     <div class="panel-heading">No Transactions </div>
     <% else %>
 <table class="table table-bordered table-hover">
@@ -40,7 +40,7 @@
     <th>Cr/Dr</th>
     <th>Balance</th>
   </tr>
-   <% @transactionss.each_with_index do |transaction,i| %>
+   <% @transactions.each_with_index do |transaction,i| %>
    <tr style="color:#000;">
 <td><%=h (i+1) %></td>
 <td><%=h transaction.created_at.strftime("%d-%m-%Y") %></td>

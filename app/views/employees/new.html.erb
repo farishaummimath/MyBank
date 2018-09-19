@@ -30,6 +30,11 @@
     <%= f.label :address %><br/>
     <%= f.text_field :address %>
   </div>
+<div class="form-group">
+
+<%= f.label :Nationality %><br/>
+<%= f.select:nationality, options_for_select(@nationalities.map {|n| [(n.name),n.id]}),{:include_blank => "Choose Nationality"}%>
+                </div>   
   <div class="form-group">
     <%= f.label :contact_number %><br/>
     <%= f.text_field :contact_number %>
