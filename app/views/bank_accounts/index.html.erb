@@ -20,6 +20,7 @@
     <%= label_tag :account_number%>
 
     <%= text_field_tag :account_number%>
+</div>
 <div class="form-group">
 
     <%= submit_tag "Search" %>
@@ -30,10 +31,7 @@
 <div id ="result">
 
 </div>
-   
-<%=  link_to "View Closure Requests",all_close_account_requests_bank_accounts_path %>
-</div>
-<% else %>
-
-<p>"Sorry, you are not allowed to access that page."</p>
-<% end %>
+<% end %>  
+ <% if permitted_to? :all_close_account_requests, :bank_accounts %>
+ <%=  link_to "View Closure Requests",all_close_account_requests_bank_accounts_path %>
+ <% end %>

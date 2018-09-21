@@ -1,13 +1,17 @@
 class Customer < ActiveRecord::Base
   has_one :user, :as => :record, :dependent => :destroy
   has_one :bank_account
-  attr_accessible :first_name ,:application_status, :application_number,
-    :last_name, :date_of_birth, :nationality, :address, :contact_number, :photo
+  
   validates_presence_of :first_name ,:last_name, :date_of_birth, :nationality,
     :address, :contact_number, :photo
+   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  
+  validates_numericality_of :contact_number, :only_integer => true
+  validates_format_of	  :email, :with => EmailRegex
+  validates_uniqueness_of :email, :case_sensitive => false
   has_attached_file :photo,
     :styles => {:medium => "120x120>", :thumb => "20x20>"},
-					   :default_url =>'/images/missing_thumb.png'
+					   :default_url =>'/images/noimage.png'
 
 	validates_attachment_content_type :photo, 
     :content_type => ['image/jpeg','image/png']
@@ -22,15 +26,12 @@ class Customer < ActiveRecord::Base
 
   def add_user
     user = User.new
-    user.username = self.first_name.downcase + self.last_name.downcase
-    user.password = self.first_name.downcase + self.last_name.downcase+"123"
-    user.save
+    set_fields
     self.user = user unless user.new_record? 
   end
   
   def update_user
-    user.username = self.first_name.downcase + self.last_name.downcase
-    user.password = self.first_name.downcase + self.last_name.downcase+"123"
+   set_fields
     user.save
     
   end
@@ -44,20 +45,25 @@ class Customer < ActiveRecord::Base
   
   def self.create_account(customer_id)
     if customer_id
-     bank_account = BankAccount.new
-     bank_account.customer_id = customer_id
      unique_number =15.times.map { (0..9).to_a.choice }.join
      num = unique_number.to_i
-     bank_account.account_number = num
-     bank_account.opening_balance = 0
-     bank_account.save 
-     user = User.find_by_record_id_and_record_type(customer_id,"Customer")
-     user.is_active = true
-     user.save
-
-     
-    else
+     bank_account = BankAccount.new(:customer_id => customer_id,
+       :account_number => num,:opening_balance => 0, :current_balance => :opening_balance)
+     if bank_account.save 
+      user = User.find_by_record_id_and_record_type(customer_id,"Customer")
+      if user.update_attributes(:is_active => true)  
+        return bank_account
+      else
       return nil
+     end
     end
   end
  end
+ private
+  
+  def set_fields
+    user.username = self.first_name.downcase + self.last_name.downcase
+    user.password = self.first_name.downcase + self.last_name.downcase+"123"
+  end
+ 
+end

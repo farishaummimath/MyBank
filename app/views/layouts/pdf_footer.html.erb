@@ -1,0 +1,11 @@
+<%= wicked_pdf_stylesheet_link_tag "#{Rails.root}/public/stylesheets/pdf" %>
+<% if @c == "Customer" %>
+  <div class = "container-fluid bg-4 text-center" >
+    <p style = "color:red;font-style:italic">Disclaimer: This statement is system generated, doesn’t require any signature from bank or bank officials.</p> 
+  </div>
+<% else %>
+  <div class = "container-fluid bg-4 text-center" >
+    <p style = "color:red">Bank Manager / Bank Authorized Signature</p>
+     <div style="height: 50px;  width: 155px;  border: 2px solid;background-color: none;"></div>
+  </div>
+<% end %>

@@ -19,7 +19,8 @@
 <h3> Transfer to Beneficiary accounts</h3>
 
 <% form_for :transfer,:url=> transfer_bank_account_path, :method => 'post' do |f|%>
- <div class="form-group">
+<%= f.error_messages %>
+<div class="form-group">
   <%= f.label :amount, "Enter Amount to be transferred" %>
   <%= f.text_field :amount %>
   <%= f.select :to_bank_account, options_for_select(@beneficiaries.map {|c| [(c.beneficiary_name),c.id]}),{:include_blank => "Choose Beneficiary"}%>

@@ -1,7 +1,8 @@
 class CustomersController < ApplicationController
   
   filter_access_to :all,  :except => [:show, :edit,:update,:beneficiaries,:create_beneficiary]
-  filter_access_to [:show, :edit,:update,:beneficiaries,:create_beneficiary], :record_check => true, :load_method => lambda {Customer.find(params[:id])}
+  filter_access_to [:show, :edit,:update,:beneficiaries,:create_beneficiary], :attribute_check => true, :load_method => lambda {Customer.find(params[:id])}
+  before_filter :find_customer, :only => [:approve,:reject, :revert,:edit,:show, :update, :destroy]
   def index
     @customers = Customer.all 
   end
@@ -12,13 +13,13 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = Customer.create(params[:customer])
+    @customer = Customer.new(params[:customer])
     @customer.application_number = rand(36**10).to_s(36)
     if @customer.save
       flash[:success] = "Application sent successfully" + "<br/> Application number  : #{@customer.application_number}. Please note it down to check the application status"
       redirect_to application_status_path
     else
-      @title = "Add Doctor"
+      @title = "Add Customer"
       render 'new'
     end
   end
@@ -29,41 +30,44 @@ class CustomersController < ApplicationController
     @customers = Customer.search(params[:search])
   end
   def approve
-    @customer = Customer.find(params[:id])
-    @customer.application_status = "approved"
-    @customer.save
-    @customer_account = Customer.create_account(params[:id])
-    flash[:success] = "Application approved."
+    if @customer.update_attributes(:application_status => "approved")
+       if Customer.create_account(params[:id])
+         flash[:success] = "Application approved and bank Account created"
+       end
+    else
+      flash[:error] = "Something went wrong"
+    end  
     redirect_to customers_path
     
   end
   def reject
-    @customer = Customer.find(params[:id])
-    @customer.application_status = "rejected"
-    @customer.save
-    flash[:success] = "Application rejected."
+    if @customer.update_attributes(:application_status => "rejected")
+      flash[:success] = "Application rejected."
+    else
+      flash[:success] = "Application cannot be rejected."
+    end 
     redirect_to customers_path
   end
   def revert
-    @customer = Customer.find(params[:id])
     @customer_account=@customer.bank_account 
     if @customer.application_status == "approved"
-      @customer_account.destroy
+      if @customer_account.destroy
+        flash[:success] = "Application reverted to pending and deleted bank account."
+      end
     end
               
-    @customer.application_status = "pending"
-    @customer.save
-    flash[:success] = "Application pending."
+    if @customer.update_attributes(:application_status => "pending")
+      flash[:success] = "Application reverted to pending."
+    end
     redirect_to customers_path
   end
         
   def edit
-    @customer = Customer.find(params[:id]) 
 
+    
   end
 
   def update
-    @customer = Customer.find(params[:id])
 
     if @customer.update_attributes(params[:customer])
       flash[:success] = "Customer updated."
@@ -75,14 +79,14 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id]) 
   end
 
   def destroy
-    @customer = Customer.find(params[:id]) 
-    @customer.destroy
-    flash[:error] = "Customer Deleted."
-
+    if @customer.destroy
+      flash[:error] = "Customer Deleted."
+    else
+      flash[:error] = "Something went wrong."
+    end
     redirect_to customers_path
 
   end
@@ -96,16 +100,14 @@ class CustomersController < ApplicationController
   
   def create_beneficiary
     @bank_account = current_user.record.bank_account
-    @to_bank_account = BankAccount.search(params[:beneficiary][:to_bank_account])
+    @to_bank_account = BankAccount.search_acc(params[:beneficiary][:to_bank_account])
     @account = @bank_account.beneficiary_accounts    
      
-    if !@to_bank_account.nil? && !@account.find_by_account_number(params[:beneficiary][:to_bank_account]).present?  
-      @beneficiary = @bank_account.beneficiaries.new(:beneficiary_name => params[:beneficiary][:beneficiary_name])
-      @beneficiary.to_bank_account = @to_bank_account
-      @beneficiary.save
-
+    if !@to_bank_account.nil? && 
+      !@account.find_by_account_number(params[:beneficiary][:to_bank_account]).present?  
+      @beneficiary = @bank_account.beneficiaries.new(:beneficiary_name => params[:beneficiary][:beneficiary_name],:to_bank_account =>@to_bank_account )
       if @beneficiary.save
-          
+       
         flash[:success] = "Beneficiary addition request sent"
         redirect_to beneficiaries_customer_path
       else
@@ -121,23 +123,23 @@ class CustomersController < ApplicationController
             
   end
   
-  def  approve_reject_beneficiaries
-    
+  def  approve_reject_beneficiaries    
     @bank_account = BankAccount.find_by_id(params[:id])
     @beneficiary = @bank_account.beneficiaries.find(params[:approve_reject][:beneficary_account])
-   
     if params[:approve_reject][:status] == "Approve"
-      
-      @beneficiary.status = "approved"
-      
+        if @beneficiary.updates_attributes(:status => "Approved")
+          flash[:success]  = "Approved beneficiary"
+        end      
     else
-      @beneficiary.status = "rejected"
+      if @beneficiary.updates_attributes(:status => "Rejected")
+          flash[:success]  = "Rejected beneficiary"
+      end 
     end
-    @beneficiary.save
-
-    redirect_to :controller => "bank_accounts" ,:action => 'beneficiaries_page'
+    redirect_to :back
   end
-  
-  
+end
 
+private
+def find_customer
+    @customer = Customer.find(params[:id])
 end

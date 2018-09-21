@@ -18,14 +18,16 @@
   </h4>
   <% if current_user.record_type == "Employee" %>
   <div class = "links">
+    <% if permitted_to? :index, :employees %>
     <div class = "link-div">
         <div class="link_heading"> 
             <%= link_to "Manage Customer Application", customers_path %>
         </div>
         <div class="link_desc"> 
-           View Accounts Transactions
+           View Customer Applications
         </div>
     </div> 
+    <% end %>  
     <div class="link-div" style="float:right;margin:8px">
         <div class="link_heading"> 
             <%= link_to "My Profile",current_user.record %>
@@ -42,15 +44,27 @@
            Accounts and Transactions
         </div>
     </div> 
+       <% if permitted_to? :index, :employees %>
     <div class="link-div" style="float:right;margin:8px">
         <div class="link_heading"> 
-            <%= link_to "Employee",employees_path %>
+            <%= link_to " Manage Employees",employees_path %>
         </div>
         <div class="link_desc"> 
-            View your profile.
+            Manage Employees.
          </div>
     </div> 
-  <div>
+     <% end %> 
+       <% if permitted_to? :index, :users %>
+    <div class="link-div" >
+        <div class="link_heading"> 
+            <%= link_to "Manage Users",users_path %>
+        </div>
+        <div class="link_desc"> 
+            Manage Employees.
+         </div>
+    </div> 
+     <% end %> 
+  </div>
   <% else %> 
       <% if !current_user.record.bank_account.active_status? %>
       <div> Your account is suspended </div>

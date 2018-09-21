@@ -16,10 +16,11 @@ and open the template in the editor.
 .notice a {color:#514721;}
 .success a {color:#264409;}
 .info a {color:#205791;}
+
 .fieldWithErrors {
 	background-color: red;
 	display: table;
-        color: #fff;
+        color: black;
 
 }
 .fieldWithErros label {

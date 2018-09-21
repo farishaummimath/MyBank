@@ -10,13 +10,14 @@ class BankAccount < ActiveRecord::Base
   named_scope :search_account_number, lambda{|acc| {:conditions => ["account_number = ?","#{acc}"]}}
   
   
-  def self.search(account_number)
+  def self.search_acc(account_number)
     if account_number
       find_by_account_number(account_number)
     else
       return nil
     end
   end
+  
   def self.search(a,b,c)
     if a.present? || b.present? || c.present?
       puts b.present?
@@ -32,7 +33,8 @@ class BankAccount < ActiveRecord::Base
 
   def self.withdraw(amount,ba_id)    
     ActiveRecord::Base.transaction do
-      if amount.present?
+      f = 0
+      if amount.present? && amount.to_i != 0
        @bank_account = BankAccount.find_by_id(ba_id)
        curr=@bank_account.current_balance
         if(@bank_account.current_balance >= amount.to_i)
@@ -44,42 +46,68 @@ class BankAccount < ActiveRecord::Base
               :particulars =>"Withdrawal #{amount} from BANK",
               :balance => @bank_account.current_balance) 
             if @tran.save
-              return @tran
-            else     
-              raise 'Error'
-            end  
+              f = 1
+            end 
           end      
         end                 
       end
-      raise ActiveRecord::Rollback 
-    end
-  end  
+      if f == 0
+        raise ActiveRecord::Rollback 
+      else
+        return @tran
+      end 
+  end
+   
+ end  
   
   def self.deposit(amount,ba_id)
     @bank_account = BankAccount.find_by_id(ba_id)
     curr= @bank_account.current_balance
+    f= 0
     ActiveRecord::Base.transaction do
-      if amount.present?
+      if amount.present? && amount.to_i != 0
         if @bank_account.update_attributes(:current_balance => curr + amount.to_i)    
           @tran = BankTransaction.new(:bank_account_id => @bank_account.id ,
           :transaction_type => "Cr",
           :transaction_amount => amount.to_i,
           :particulars =>"Deposited #{amount} from BANK",:balance => @bank_account.current_balance) 
           if @tran.save
-            return @tran
-          end
-        end
+            f = 1
+          end          
+        end   
+      end 
+       if f == 0
+        raise ActiveRecord::Rollback 
+      else
+        return @tran
       end
-          raise ActiveRecord::Rollback 
-
     end  
-  end
- 
+  end 
+  
   def self.transfer(from_id,to_id,amount)
-      w = withdraw(amount,from_id)
-      d = deposit(amount,to_id)    
-      w.update_attributes(:particulars => "deposited to XXXXX#{d.bank_account.customer.first_name}")
-      d.update_attributes(:particulars => "Transferred from XXXX#{w.bank_account.customer.first_name}")   
+    f = 0
+    ActiveRecord::Base.transaction do 
+      to_account = find(to_id)
+      if (amount.to_i<= to_account.current_balance)
+        w = withdraw(amount,from_id)
+        d = deposit(amount,to_id)    
+            
+        if w && d
+          if w.update_attributes(:particulars => 
+                "deposited to XXXXX#{d.bank_account.customer.first_name}") &&
+              d.update_attributes(:particulars => 
+              "Transferred from XXXX#{w.bank_account.customer.first_name}")
+              f = 1          
+          end
+        end  
+      end  
+      if f == 0
+        raise ActiveRecord::Rollback 
+      else
+        return @tran
+      end
+      
+      end
   end
   
 end

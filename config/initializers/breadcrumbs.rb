@@ -21,6 +21,10 @@ Gretel::Crumbs.layout do
     parent :employees_index
   end
   crumb :employees_edit do
+    link "Edit employee profile", {:controller => "employees", :action => "edit"}
+    parent :employees_show
+  end
+  crumb :employees_update do
     link "Employee profile", {:controller => "employees", :action => "edit"}
     parent :employees_show
   end
