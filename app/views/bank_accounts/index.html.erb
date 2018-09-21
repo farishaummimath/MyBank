@@ -4,6 +4,10 @@
 </div>
 <% if permitted_to? :index, :bank_accounts %>
 
+
+  <p>Date: <input type="text" id="datepicker"></p>
+
+ 
 <h4>Search Bank Accounts by</h4>
   
  <% form_remote_tag :url=>{:controller => "bank_accounts", :action => "show_bank_accounts"}, :class=>"form-horizontal" do %>
