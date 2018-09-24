@@ -58,8 +58,8 @@ Gretel::Crumbs.layout do
     parent :root
   end
   crumb :bank_accounts_beneficiaries_page do
-    link " Beneficiaries", {:controller => "customers", :action => "beneficiaries_page"}
-    parent :root
+    link "Beneficiaries Request", {:controller => "customers", :action => "beneficiaries_page"}
+    parent :bank_accounts_show
   end
   
   
