@@ -126,15 +126,21 @@ class CustomersController < ApplicationController
   def  approve_reject_beneficiaries    
     @bank_account = BankAccount.find_by_id(params[:id])
     @beneficiary = @bank_account.beneficiaries.find(params[:approve_reject][:beneficary_account])
-    if params[:approve_reject][:status] == "Approve"
+    if params[:approve_reject][:status] && @beneficiary.status == "pending"
+      if params[:approve_reject][:status] == "Approve"
         if @beneficiary.update_attributes(:status => "Approved")
           flash[:success]  = "Approved beneficiary"
         end      
+      elsif params[:approve_reject][:status] == "Reject"
+        if @beneficiary.update_attributes(:status => "Rejected")
+            flash[:success]  = "Rejected beneficiary"
+        end 
+      else
+      end  
     else
-      if @beneficiary.update_attributes(:status => "Rejected")
-          flash[:success]  = "Rejected beneficiary"
-      end 
+      flash[:error] = "please select option"
     end
+    
     redirect_to :back
   end
 end
