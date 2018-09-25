@@ -97,15 +97,13 @@ class BankAccountsController < ApplicationController
     if @bank_account.active_status == true
       if params[:transfer][:to_bank_account].present? && 
           params[:transfer][:amount].present?
-        if @bank_account.is_active == true
           @beneficiary_account= @bank_account.beneficiaries.find_by_id(params[:transfer][:to_bank_account])
           @transaction = BankAccount.transfer(params[:id],@beneficiary_account.to_bank_account_id,params[:transfer][:amount])
           if !@transaction.nil?
             flash[:success] = "Transaction  successful"
           else
             flash[:error] = "Transaction  Failed"
-          end
-        end  
+          end       
       else
          flash[:notice] = " No input received "
       end  

@@ -29,20 +29,22 @@
       <%=  ben.status.upcase %>
     <% end %> 
 </td>
+<% if ben.status == "pending" %>
 <% if permitted_to? :approve_reject_beneficiaries, :customers %>
 <td>
-            <div> 
- <% form_for :approve_reject,:url=> approve_reject_beneficiaries_customer_path, :method => 'post' do |f|%>
+<div> 
+<% form_for :approve_reject,
+  :url=> approve_reject_beneficiaries_customer_path, :method => 'post' do |f|%>
  <div class="form-group">
   <%= f.select :status, options_for_select([["Choose",nil],"Approve", "Reject"])%>
   <%= f.hidden_field :beneficary_account, :value => ben.id %> 
   <%= f.submit "Submit" %>
+  </div>    
 <% end %>
- </div> 
-        </div>
+ </div>
 </td>
 <% end %>
-
+<% end %>
   </tr>
 <% end %>
   <% end %>

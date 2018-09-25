@@ -136,6 +136,7 @@ class CustomersController < ApplicationController
             flash[:success]  = "Rejected beneficiary"
         end 
       else
+        flash[:error] = "Can't select option"
       end  
     else
       flash[:error] = "please select option"
