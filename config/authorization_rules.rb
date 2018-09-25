@@ -34,7 +34,7 @@ authorization do
     has_permission_on :users, :to => [:index,:edit,:new,:create, :update,:show,:destroy]
   end
   role :manage_customers do
-    has_permission_on :customers, :to => [:index, :new, :create, :check_application_status,:show_application_status,:approve,:reject,:revert,:beneficiaries,:approve_reject_beneficiaries,:edit,:show, :update,:destroy]
+    has_permission_on :customers, :to => [:index, :new, :create, :check_application_status,:show_application_status,:approve,:reject,:revert,:approve_reject_beneficiaries,:edit,:show, :update,:destroy]
   end
   role :manage_employees do
     has_permission_on :employees, :to => [:index, :new,:edit,:update, :create, :show, :update,:destroy]

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users= User.all
+    #@users= User.all
+    @users = User.paginate :page => params[:page], :order => 'updated_at DESC'
   end
   
   def login_page

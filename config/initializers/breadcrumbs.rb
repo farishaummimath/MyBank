@@ -61,6 +61,14 @@ Gretel::Crumbs.layout do
     link "Beneficiaries Request", {:controller => "customers", :action => "beneficiaries_page"}
     parent :bank_accounts_show
   end
+  crumb :users_index do
+    link "Manage users", {:controller => "users", :action => "index"}
+    parent :root
+  end
+  crumb :users_show do
+    link "User profile", {:controller => "users", :action => "show"}
+    parent :users_index
+  end
   
   
  end

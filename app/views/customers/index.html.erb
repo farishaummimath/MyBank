@@ -3,7 +3,8 @@
      <% make_breadcrumb %> 
     <%= render_breadcrumbs %>
 </div>
- 
+ <%= will_paginate @customers %>
+
 <h3>Customer Application</h3>
 
 <table class="table table-bordered table-hover">
@@ -33,5 +34,6 @@
   </tr>
 <% end %>
 </table>
+
 
 

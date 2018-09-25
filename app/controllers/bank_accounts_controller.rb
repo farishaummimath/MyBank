@@ -15,8 +15,8 @@ class BankAccountsController < ApplicationController
   end
   
   def show_bank_accounts
-      @bank_accounts = BankAccount.search(params[:name], params[:nationality], params[:account_number])
-      if @bank_accounts.present?
+      @bank_accounts = BankAccount.search(params[:name], params[:nationality],params[:account_number]).paginate :page => params[:page],:order => ['created_at DESC']
+     if @bank_accounts.present?
         render :update do |page|
               page.replace_html :result, :partial => 'show_bank_accounts', :locals =>{:bank_accounts =>@bank_accounts}
         end

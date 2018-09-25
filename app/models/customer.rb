@@ -1,7 +1,8 @@
 class Customer < ActiveRecord::Base
   has_one :user, :as => :record, :dependent => :destroy
   has_one :bank_account
-  
+  cattr_reader :per_page
+   @@per_page = 10
   validates_presence_of :first_name ,:last_name, :date_of_birth, :nationality,
     :address, :contact_number, :photo
    EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

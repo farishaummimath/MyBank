@@ -8,7 +8,8 @@ class BankAccount < ActiveRecord::Base
   named_scope :search_name, lambda{|name| {:joins => :customer,:conditions => ["customers.first_name LIKE ?", "%#{name}%"]}}
   named_scope :search_nationality, lambda{|nat| {:joins => :customer,:conditions => ["customers.nationality = ?",nat]}}
   named_scope :search_account_number, lambda{|acc| {:conditions => ["account_number = ?","#{acc}"]}}
-  
+   cattr_reader :per_page
+   @@per_page = 5
   
   def self.search_acc(account_number)
     if account_number

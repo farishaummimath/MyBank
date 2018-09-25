@@ -4,7 +4,8 @@ class CustomersController < ApplicationController
   filter_access_to [:show, :edit,:update,:beneficiaries,:create_beneficiary], :attribute_check => true, :load_method => lambda {Customer.find(params[:id])}
   before_filter :find_customer, :only => [:approve,:reject, :revert,:edit,:show, :update, :destroy]
   def index
-    @customers = Customer.all 
+    @customers = Customer.paginate :page => params[:page], :order => 'updated_at DESC'
+
   end
 
   def new

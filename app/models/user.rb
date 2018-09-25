@@ -2,10 +2,12 @@ require 'digest'
 class User < ActiveRecord::Base
   attr_accessor :password
   belongs_to :record, :polymorphic => true
+  cattr_reader :per_page
+   @@per_page = 10
   attr_accessible :password , :is_admin, :is_active
 
   validates_presence_of :username #,:password
-
+  
   before_create :encrypt_password
   validate :check_password
   
