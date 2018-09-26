@@ -15,10 +15,11 @@ class Employee < ActiveRecord::Base
   before_create :add_user
   def add_user
     user = User.add(self.first_name, self.last_name,self.manager)
+    user.is_active = true 
     self.user = user unless user.new_record?
   end
   def update_user
-    User.update_fields(self.first_name, self.last_name,self.id)   
-  end
-  
+    user= User.find_by_record_id(self.id)
+    user.set_fields(self.first_name, self.last_name)  
+  end  
 end

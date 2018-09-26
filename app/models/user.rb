@@ -49,26 +49,19 @@ class User < ActiveRecord::Base
   def self.add(first_name,last_name,manager)
     user = User.new
     user.set_fields(first_name,last_name)
-    if manager!= "0"
+    if manager
       if self.manager == "1"
         user.is_admin = true
       end 
-     user.is_active = true 
     end  
     user.save    
     return user
-    
-  end
-
-  def self.update_fields(first_name,last_name,id)
-     user = find_by_record_id(id)
-     user.set_fields(first_name,last_name)
-     user.save
-  end
+  end    
     
   def set_fields(fname,lname)
-    self.username = fname.downcase + lname.downcase
-    self.password = fname.downcase + lname.downcase+"123"
+      self.username = fname.downcase + lname.downcase
+      self.password = fname.downcase + lname.downcase+"123"
+      self.save
   end
   
  

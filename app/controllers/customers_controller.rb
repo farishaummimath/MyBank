@@ -101,14 +101,13 @@ class CustomersController < ApplicationController
   
   def create_beneficiary
     @bank_account = current_user.record.bank_account
-    @to_bank_account = BankAccount.search_acc(params[:beneficiary][:to_bank_account])
+    @to_bank_account = BankAccount.find_by_account_number(params[:beneficiary][:to_bank_account].to_i)
     @account = @bank_account.beneficiary_accounts    
     if params[:beneficiary][:to_bank_account].present? 
       if !@to_bank_account.nil? && 
         !@account.find_by_account_number(params[:beneficiary][:to_bank_account]).present?  
         @beneficiary = @bank_account.beneficiaries.new(:beneficiary_name => params[:beneficiary][:beneficiary_name],:to_bank_account =>@to_bank_account )
         if @beneficiary.save
-
           flash[:success] = "Beneficiary addition request sent"
           redirect_to beneficiaries_customer_path
         else
@@ -132,11 +131,11 @@ class CustomersController < ApplicationController
     @beneficiary = @bank_account.beneficiaries.find(params[:approve_reject][:beneficary_account])
     if params[:approve_reject][:status] && @beneficiary.status == "pending"
       if params[:approve_reject][:status] == "Approve"
-        if @beneficiary.update_attributes(:status => "Approved")
+        if @beneficiary.update_attributes(:status => "approved")
           flash[:success]  = "Approved beneficiary"
         end      
       elsif params[:approve_reject][:status] == "Reject"
-        if @beneficiary.update_attributes(:status => "Rejected")
+        if @beneficiary.update_attributes(:status => "rejected")
             flash[:success]  = "Rejected beneficiary"
         end 
       else

@@ -96,18 +96,20 @@ class BankAccountsController < ApplicationController
   def transfer
     if @bank_account.active_status == true
       if params[:transfer][:to_bank_account].present? && 
-          params[:transfer][:amount].present?
-          @beneficiary_account= @bank_account.beneficiaries.find_by_id(params[:transfer][:to_bank_account])
-          @transaction = BankAccount.transfer(params[:id],@beneficiary_account.to_bank_account_id,params[:transfer][:amount])
-          if !@transaction.nil?
-            flash[:success] = "Transaction  successful"
-          else
-            flash[:error] = "Transaction  Failed"
-          end       
+        params[:transfer][:amount].present?
+        @beneficiary_account= @bank_account.beneficiaries.find(params[:transfer][:to_bank_account])
+        p @beneficiary_account
+        @transaction = BankAccount.transfer(params[:id],@beneficiary_account.to_bank_account_id,params[:transfer][:amount])
+        p @transaction
+        if !@transaction.nil?
+          flash[:success] = "Transaction  successful"
+        else
+          flash[:error] = "Transaction  Failed"
+        end       
       else
-         flash[:notice] = " No input received "
+        flash[:notice] = " No input received "
       end  
-          redirect_to :back
+        redirect_to :back
     else
       flash[:error]= "Account suspended"
       redirect_to @bank_account

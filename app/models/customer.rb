@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
   has_one :user, :as => :record, :dependent => :destroy
-  has_one :bank_account
+  has_one :bank_account, :dependent => :destroy
   cattr_reader :per_page
    @@per_page = 10
   validates_presence_of :first_name ,:last_name, :date_of_birth, :nationality,
@@ -30,8 +30,10 @@ class Customer < ActiveRecord::Base
   end
   
   def update_user
-    User.update_fields(self.first_name, self.last_name,self.id)   
+    user= User.find_by_record_id(self.id)
+    user.set_fields(self.first_name, self.last_name) 
   end
+ 
   
   def self.search(search)
     if search
@@ -46,7 +48,7 @@ class Customer < ActiveRecord::Base
      unique_number =15.times.map { (0..9).to_a.choice }.join
      num = unique_number.to_i
      bank_account = BankAccount.new(:customer_id => customer_id,
-       :account_number => num,:opening_balance => 0, :current_balance => :opening_balance)
+       :account_number => num,:opening_balance => 0, :current_balance => 0)
      if bank_account.save 
       user = User.find_by_record_id_and_record_type(customer_id,"Customer")
       if user.update_attributes(:is_active => true)  
