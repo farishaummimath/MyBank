@@ -43,7 +43,7 @@ Gretel::Crumbs.layout do
   end
   crumb :bank_accounts_show do
     link "View Account details", {:controller => "bank_accounts", :action => "show"}
-    parent :bank_accounts_index
+    parent :root
   end
   crumb :bank_accounts_all_close_account_requests do
     link " Account Closure Requests", {:controller => "bank_accounts", :action => "all_close_account_requests"}

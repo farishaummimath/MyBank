@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
   filter_access_to :all, :except => [:show,:edit]
-  filter_access_to [:show,:edit],:attribute_check => true, :load_method => lambda {Employee.find(params[:id])}
+  filter_access_to [:show,:edit],:attribute_check => true,
+    :load_method => lambda {Employee.find(params[:id])}
   before_filter :find_employee, :only => [:edit,:show, :update, :destroy]
   def index
     @employees = Employee.all 

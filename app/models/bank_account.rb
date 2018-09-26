@@ -8,11 +8,12 @@ class BankAccount < ActiveRecord::Base
   named_scope :search_name, lambda{|name| {:joins => :customer,:conditions => ["customers.first_name LIKE ?", "%#{name}%"]}}
   named_scope :search_nationality, lambda{|nat| {:joins => :customer,:conditions => ["customers.nationality = ?",nat]}}
   named_scope :search_account_number, lambda{|acc| {:conditions => ["account_number = ?","#{acc}"]}}
-   cattr_reader :per_page
+   
+  cattr_reader :per_page
    @@per_page = 5
   
   def self.search_acc(account_number)
-    if account_number
+    if account_number.present?
       find_by_account_number(account_number)
     else
       return nil
@@ -36,7 +37,7 @@ class BankAccount < ActiveRecord::Base
     ActiveRecord::Base.transaction do
       f = 0
       if amount.present? && amount.to_i != 0
-       @bank_account = BankAccount.find_by_id(ba_id)
+       @bank_account = BankAccount.find(ba_id)
        curr=@bank_account.current_balance
         if(@bank_account.current_balance >= amount.to_i)
           if @bank_account.update_attributes(:current_balance => curr - amount.to_i)
@@ -48,21 +49,21 @@ class BankAccount < ActiveRecord::Base
               :balance => @bank_account.current_balance) 
             if @tran.save
               f = 1
-            end 
+            else
+              raise ActiveRecord::Rollback 
+
+            end  
           end      
         end                 
       end
-      if f == 0
-        raise ActiveRecord::Rollback 
-      else
-        return @tran
-      end 
+      return @tran
+       
   end
    
  end  
   
   def self.deposit(amount,ba_id)
-    @bank_account = BankAccount.find_by_id(ba_id)
+    @bank_account = BankAccount.find(ba_id)
     curr= @bank_account.current_balance
     f= 0
     ActiveRecord::Base.transaction do
@@ -74,14 +75,13 @@ class BankAccount < ActiveRecord::Base
           :particulars =>"Deposited #{amount} from BANK",:balance => @bank_account.current_balance) 
           if @tran.save
             f = 1
-          end          
+          else
+            raise ActiveRecord::Rollback 
+          end  
         end   
       end 
-       if f == 0
-        raise ActiveRecord::Rollback 
-      else
+       
         return @tran
-      end
     end  
   end 
   
@@ -99,16 +99,13 @@ class BankAccount < ActiveRecord::Base
               d.update_attributes(:particulars => 
               "Transferred from XXXX#{w.bank_account.customer.first_name}")
               f = 1          
-          end
+          else
+            raise ActiveRecord::Rollback 
+          end  
         end  
       end  
-      if f == 0
-        raise ActiveRecord::Rollback 
-      else
-        return @tran
-      end
-      
-      end
+      return @tran      
+    end
   end
   
 end

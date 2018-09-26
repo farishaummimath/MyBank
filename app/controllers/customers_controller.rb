@@ -103,29 +103,32 @@ class CustomersController < ApplicationController
     @bank_account = current_user.record.bank_account
     @to_bank_account = BankAccount.search_acc(params[:beneficiary][:to_bank_account])
     @account = @bank_account.beneficiary_accounts    
-     
-    if !@to_bank_account.nil? && 
-      !@account.find_by_account_number(params[:beneficiary][:to_bank_account]).present?  
-      @beneficiary = @bank_account.beneficiaries.new(:beneficiary_name => params[:beneficiary][:beneficiary_name],:to_bank_account =>@to_bank_account )
-      if @beneficiary.save
-       
-        flash[:success] = "Beneficiary addition request sent"
-        redirect_to beneficiaries_customer_path
-      else
-      flash[:error] = "Beneficiary not saved "
-        redirect_to :action => 'beneficiaries'
-      end 
-    else
+    if params[:beneficiary][:to_bank_account].present? 
+      if !@to_bank_account.nil? && 
+        !@account.find_by_account_number(params[:beneficiary][:to_bank_account]).present?  
+        @beneficiary = @bank_account.beneficiaries.new(:beneficiary_name => params[:beneficiary][:beneficiary_name],:to_bank_account =>@to_bank_account )
+        if @beneficiary.save
 
-      flash[:error] = "Invalid beneficiary account number or Beneficiary already added"
+          flash[:success] = "Beneficiary addition request sent"
+          redirect_to beneficiaries_customer_path
+        else
+        flash[:error] = "Beneficiary not saved "
+          redirect_to :action => 'beneficiaries'
+        end 
+      else
+
+        flash[:error] = "Invalid beneficiary account number or Beneficiary already added"
+        redirect_to :back
+      end  
+    else
+      flash[:error] = "Invalid input"
       redirect_to :back
-    end    
         
-            
+    end        
   end
   
   def  approve_reject_beneficiaries    
-    @bank_account = BankAccount.find_by_id(params[:id])
+    @bank_account = BankAccount.find(params[:id])
     @beneficiary = @bank_account.beneficiaries.find(params[:approve_reject][:beneficary_account])
     if params[:approve_reject][:status] && @beneficiary.status == "pending"
       if params[:approve_reject][:status] == "Approve"

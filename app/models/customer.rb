@@ -22,20 +22,17 @@ class Customer < ActiveRecord::Base
     :content_type => ['image/jpeg','image/png']
   
   before_update :update_user
-
   before_create :add_user
 
   def add_user
-    user = User.new
-    set_fields
-    self.user = user unless user.new_record? 
+    user = User.add(self.first_name, self.last_name,nil)
+    self.user = user unless user.new_record?
   end
   
   def update_user
-   set_fields
-    user.save
-    
+    User.update_fields(self.first_name, self.last_name,self.id)   
   end
+  
   def self.search(search)
     if search
       find(:all, :conditions => ['application_number = ?', "#{search}"])
@@ -60,11 +57,6 @@ class Customer < ActiveRecord::Base
     end
   end
  end
- private
-  
-  def set_fields
-    user.username = self.first_name.downcase + self.last_name.downcase
-    user.password = self.first_name.downcase + self.last_name.downcase+"123"
-  end
+ 
  
 end

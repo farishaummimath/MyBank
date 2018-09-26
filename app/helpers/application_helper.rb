@@ -1,6 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  def logo
+ def logo
      image_tag("logo.png", :alt =>"DocBook", :class => "round")
  end
  def make_breadcrumb
