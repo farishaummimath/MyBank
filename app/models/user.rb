@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   attr_accessible :password , :is_admin, :is_active
 
   validates_presence_of :username #,:password
-  
+  before_update :encrypt_password
   before_create :encrypt_password
   validate :check_password
   
@@ -60,7 +60,9 @@ class User < ActiveRecord::Base
     
   def set_fields(fname,lname)
       self.username = fname.downcase + lname.downcase
+      p self.username
       self.password = fname.downcase + lname.downcase+"123"
+      p self.password
       self.save
   end
   

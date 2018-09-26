@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def login
     user = User.authenticate(params[:user])
-    p user
+    p user.password
     if user 
       if user.is_active == true
        session[:user_id] = user.id
