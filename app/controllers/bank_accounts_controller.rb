@@ -78,7 +78,7 @@ class BankAccountsController < ApplicationController
   def withdraw_deposit
       
     if @bank_account.active_status == true
-      @transaction = BankAccount.deposit(params[:amount],params[:id])  if params[:trans_type] == "Deposit"           
+      @transaction = BankAccount.deposit(params[:amount],params[:id]) if params[:trans_type] == "Deposit"           
       @transaction = BankAccount.withdraw(params[:amount],params[:id]) if params[:trans_type] == "Withdraw" 
       if @transaction
         flash[:success] = "Transaction  successful"
@@ -96,18 +96,18 @@ class BankAccountsController < ApplicationController
   def transfer
     if @bank_account.active_status == true
       if params[:transfer][:to_bank_account].present? && 
-          params[:transfer][:amount].present?
-          @beneficiary_account= @bank_account.beneficiaries.find_by_id(params[:transfer][:to_bank_account])
-          @transaction = BankAccount.transfer(params[:id],@beneficiary_account.to_bank_account_id,params[:transfer][:amount])
-          if !@transaction.nil?
-            flash[:success] = "Transaction  successful"
-          else
-            flash[:error] = "Transaction  Failed"
-          end       
+        params[:transfer][:amount].present?
+        @beneficiary_account= @bank_account.beneficiaries.find(params[:transfer][:to_bank_account])
+        @transaction = BankAccount.transfer(params[:id],@beneficiary_account.to_bank_account_id,params[:transfer][:amount])
+        if !@transaction.nil?
+          flash[:success] = "Transaction  successful"
+        else
+          flash[:error] = "Transaction  Failed"
+        end       
       else
-         flash[:notice] = " No input received "
+        flash[:notice] = " No input received "
       end  
-          redirect_to :back
+        redirect_to :back
     else
       flash[:error]= "Account suspended"
       redirect_to @bank_account
@@ -127,19 +127,15 @@ class BankAccountsController < ApplicationController
   end
   
   def close_requests
-    @requests=ClosureRequest.find_by_bank_account_id(params[:close_account_request][:bank_account_id])   
-    if  !@requests.present?
-      @closure_request = ClosureRequest.create(params[:close_account_request])
-      if @closure_request.save
+   # @requests = ClosureRequest.find_by_bank_account_id(params[:close_account_request][:bank_account_id])   
+   # if  !@requests.present?
+    if ClosureRequest.find_or_create_by_bank_account_id(params[:close_account_request])
         flash[:success] = "Request sent"
-        redirect_to @closure_request.bank_account
-      else
-      flash[:error] = "Request not sent"
-      end
+        redirect_to @c.bank_account
     else
-      flash[:notive] = "Request already sent"
-      redirect_to :back
-    end      
+      flash[:error] = "Something went wrong."
+    end
+             
   end
   
   def all_close_account_requests 
@@ -212,15 +208,18 @@ class BankAccountsController < ApplicationController
   def search_statement_by_date
     start_params = params[:start_date]
     end_params = params[:end_date]
-    @start_date = Date.new(start_params["(1i)"].to_i,start_params["(2i)"].to_i,start_params["(3i)"].to_i)
-    @end_date = Date.new(end_params["(1i)"].to_i,end_params["(2i)"].to_i,end_params["(3i)"].to_i)
+    @start_date = Date.new(start_params["(1i)"].to_i,
+      start_params["(2i)"].to_i,start_params["(3i)"].to_i)
+    @end_date = Date.new(end_params["(1i)"].to_i,
+      end_params["(2i)"].to_i,end_params["(3i)"].to_i)
     if current_user.record == "Customer"
       @bank_account = current_user.record.bank_account
     else
       @bank_account = BankAccount.find(params[:id])
     end
     @transactions = @bank_account.bank_transactions.all(
-      :conditions => ['CAST(created_at AS DATE) BETWEEN CAST(? AS DATE) AND CAST(? AS DATE)',@start_date,@end_date])
+      :conditions => ['CAST(created_at AS DATE) BETWEEN CAST(? AS DATE) AND 
+CAST(? AS DATE)',@start_date,@end_date])
   end
   private
   

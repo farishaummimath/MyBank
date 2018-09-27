@@ -14,6 +14,7 @@
 
     <%= f.label :to_bank_account,  "Enter beneficiary account number" %>
     <%= f.text_field :to_bank_account %>
+    <%= f.hidden_field:from_bank_account,:value => params[:id] %>
     <%= submit_tag " Add" %>
 
   </div>

@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
   
   def login_page
-    @title = "Login"
     
   end
  
@@ -45,10 +44,11 @@ class UsersController < ApplicationController
 
   def destroy
     @user= User.find(params[:id])
-    @user.destroy
+    if @user.destroy
+      flash[:notice] = "user removed"
+    else
+    end  
     redirect_to users_path
-
-    
   end
 
 end

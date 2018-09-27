@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
   has_one :user, :as => :record, :dependent => :destroy
-  has_one :bank_account
+  has_one :bank_account, :dependent => :destroy
   cattr_reader :per_page
    @@per_page = 10
   validates_presence_of :first_name ,:last_name, :date_of_birth, :nationality,
@@ -22,20 +22,19 @@ class Customer < ActiveRecord::Base
     :content_type => ['image/jpeg','image/png']
   
   before_update :update_user
-
   before_create :add_user
 
   def add_user
-    user = User.new
-    set_fields
-    self.user = user unless user.new_record? 
+    user = User.add(self.first_name, self.last_name,nil)
+    self.user = user unless user.new_record?
   end
   
   def update_user
-   set_fields
-    user.save
-    
+    user = self.user
+    user.set_fields(self.first_name, self.last_name) 
   end
+ 
+  
   def self.search(search)
     if search
       find(:all, :conditions => ['application_number = ?', "#{search}"])
@@ -44,15 +43,14 @@ class Customer < ActiveRecord::Base
     end
   end
   
-  def self.create_account(customer_id)
-    if customer_id
+  def self.create_account(customer_id,user)
+    if customer_id && user
      unique_number =15.times.map { (0..9).to_a.choice }.join
      num = unique_number.to_i
      bank_account = BankAccount.new(:customer_id => customer_id,
-       :account_number => num,:opening_balance => 0, :current_balance => :opening_balance)
+       :account_number => num,:opening_balance => 0, :current_balance => 0)
      if bank_account.save 
-      user = User.find_by_record_id_and_record_type(customer_id,"Customer")
-      if user.update_attributes(:is_active => true)  
+        if user.update_attributes(:is_active => true)  
         return bank_account
       else
       return nil
@@ -60,11 +58,6 @@ class Customer < ActiveRecord::Base
     end
   end
  end
- private
-  
-  def set_fields
-    user.username = self.first_name.downcase + self.last_name.downcase
-    user.password = self.first_name.downcase + self.last_name.downcase+"123"
-  end
+ 
  
 end

@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
   filter_access_to :all, :except => [:show,:edit]
-  filter_access_to [:show,:edit],:attribute_check => true, :load_method => lambda {Employee.find(params[:id])}
+  filter_access_to [:show,:edit],:attribute_check => true,
+    :load_method => lambda {Employee.find(params[:id])}
   before_filter :find_employee, :only => [:edit,:show, :update, :destroy]
   def index
     @employees = Employee.all 
@@ -18,7 +19,6 @@ class EmployeesController < ApplicationController
       flash[:success] = "Added Employee"
       redirect_to employees_path
     else
-      @title = "Add Employee"
       render 'new'
     end
   end
@@ -32,7 +32,6 @@ class EmployeesController < ApplicationController
       flash[:success] = "Employee updated."
       redirect_to employee_path
     else
-      @title = "Edit Employee"
       render 'edit'
     end
   end

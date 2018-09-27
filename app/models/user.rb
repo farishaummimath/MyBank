@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   attr_accessible :password , :is_admin, :is_active
 
   validates_presence_of :username #,:password
-  
+  before_update :encrypt_password
   before_create :encrypt_password
   validate :check_password
   
@@ -46,24 +46,41 @@ class User < ActiveRecord::Base
     end
       
   end
+  def self.add(first_name,last_name,manager)
+    user = User.new
+    user.set_fields(first_name,last_name)
+    if manager
+      if self.manager == "1"
+        user.is_admin = true
+      end 
+    end  
+    user.save    
+    return user
+  end    
+    
+  def set_fields(fname,lname)
+      self.username = fname.downcase + lname.downcase
+      self.password = fname.downcase + lname.downcase+"123"
+      self.save
+  end  
+ 
+  private   
   
-  private
-  
-		def encrypt_password
-      self.salt = make_salt  if new_record?
-      self.encrypted_password = encrypt(password)
-              
-		end
+  def encrypt_password
+    self.salt = make_salt  if new_record?
+    self.encrypted_password = encrypt(password)
 
-		def encrypt(string)
-			secure_hash("#{salt}#{string}") # temp implementation
-		end
+  end
 
-		def make_salt
-			secure_hash("#{Time.now.utc}#{password}")
-		end
+  def encrypt(string)
+  secure_hash("#{salt}#{string}") # temp implementation
+  end
 
-		def secure_hash(string)
-			Digest::SHA2.hexdigest(string)
-		end
+  def make_salt
+  secure_hash("#{Time.now.utc}#{password}")
+  end
+
+  def secure_hash(string)
+  Digest::SHA2.hexdigest(string)
+end
 end

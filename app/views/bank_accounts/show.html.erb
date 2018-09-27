@@ -4,9 +4,11 @@
 </div>
 
 <div style = "float:right;padding-top:5px;padding-bottom: 30px;padding-right: 10px">
-<% if permitted_to? :account_closure, :bank_accounts %>    
+<% if permitted_to? :account_closure, :bank_accounts %> 
+  <% if !@bank_account.closure_request.present? %>    
 <%= link_to "Account Closure Request", account_closure_bank_account_path ,:class =>"btn btn-danger" %>      
-<% end %>
+   <% end %> 
+  <% end %>
 </div>
     <div class="panel panel-default">
     <div class="panel-heading"><strong>Account Details</strong></div>
