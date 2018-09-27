@@ -5,14 +5,12 @@ class UsersController < ApplicationController
   end
   
   def login_page
-    @title = "Login"
     
   end
  
 
   def login
     user = User.authenticate(params[:user])
-    p user.password
     if user 
       if user.is_active == true
        session[:user_id] = user.id

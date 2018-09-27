@@ -19,7 +19,6 @@ class EmployeesController < ApplicationController
       flash[:success] = "Added Employee"
       redirect_to employees_path
     else
-      @title = "Add Employee"
       render 'new'
     end
   end
@@ -33,7 +32,6 @@ class EmployeesController < ApplicationController
       flash[:success] = "Employee updated."
       redirect_to employee_path
     else
-      @title = "Edit Employee"
       render 'edit'
     end
   end

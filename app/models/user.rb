@@ -60,12 +60,9 @@ class User < ActiveRecord::Base
     
   def set_fields(fname,lname)
       self.username = fname.downcase + lname.downcase
-      p self.username
       self.password = fname.downcase + lname.downcase+"123"
-      p self.password
       self.save
-  end
-  
+  end  
  
   private   
   

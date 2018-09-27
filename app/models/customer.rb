@@ -30,7 +30,7 @@ class Customer < ActiveRecord::Base
   end
   
   def update_user
-    user= User.find_by_record_id(self.id)
+    user = self.user
     user.set_fields(self.first_name, self.last_name) 
   end
  
@@ -43,15 +43,14 @@ class Customer < ActiveRecord::Base
     end
   end
   
-  def self.create_account(customer_id)
-    if customer_id
+  def self.create_account(customer_id,user)
+    if customer_id && user
      unique_number =15.times.map { (0..9).to_a.choice }.join
      num = unique_number.to_i
      bank_account = BankAccount.new(:customer_id => customer_id,
        :account_number => num,:opening_balance => 0, :current_balance => 0)
      if bank_account.save 
-      user = User.find_by_record_id_and_record_type(customer_id,"Customer")
-      if user.update_attributes(:is_active => true)  
+        if user.update_attributes(:is_active => true)  
         return bank_account
       else
       return nil

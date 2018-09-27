@@ -20,7 +20,6 @@ class CustomersController < ApplicationController
       flash[:success] = "Application sent successfully" + "<br/> Application number  : #{@customer.application_number}. Please note it down to check the application status"
       redirect_to application_status_path
     else
-      @title = "Add Customer"
       render 'new'
     end
   end
@@ -32,7 +31,8 @@ class CustomersController < ApplicationController
   end
   def approve
     if @customer.update_attributes(:application_status => "approved")
-       if Customer.create_account(params[:id])
+       @user = @customer.user
+       if Customer.create_account(params[:id],@user)
          flash[:success] = "Application approved and bank Account created"
        end
     else
@@ -74,7 +74,6 @@ class CustomersController < ApplicationController
       flash[:success] = "Customer updated."
       redirect_to customer_path
     else
-      @title = "Edit Profile"
       render 'edit'
     end
   end

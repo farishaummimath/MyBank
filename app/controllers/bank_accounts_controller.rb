@@ -98,9 +98,7 @@ class BankAccountsController < ApplicationController
       if params[:transfer][:to_bank_account].present? && 
         params[:transfer][:amount].present?
         @beneficiary_account= @bank_account.beneficiaries.find(params[:transfer][:to_bank_account])
-        p @beneficiary_account
         @transaction = BankAccount.transfer(params[:id],@beneficiary_account.to_bank_account_id,params[:transfer][:amount])
-        p @transaction
         if !@transaction.nil?
           flash[:success] = "Transaction  successful"
         else

@@ -19,7 +19,7 @@ class Employee < ActiveRecord::Base
     self.user = user unless user.new_record?
   end
   def update_user
-    user= User.find_by_record_id(self.id)
+    user = self.user
     user.set_fields(self.first_name, self.last_name)  
   end  
 end
