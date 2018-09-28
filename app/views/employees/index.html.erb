@@ -2,12 +2,8 @@
      <% make_breadcrumb %> 
     <%= render_breadcrumbs %>
 </div>
- 
-
 <% if permitted_to? :index, :bank_accounts %>
-
 <h3>Listing Employees</h3>
-
 <table class="table table-bordered table-hover">
   <tr>
     <th>Sl No</th>
@@ -15,7 +11,6 @@
     <th>Username</th>
     <th>Is Admin?</th>
   </tr>
-
 <% @employees.each_with_index do |employee,i| %>
   <tr style="color:#000;">
             <td><%=h (i+1) %></td>
@@ -25,8 +20,6 @@
       <td><%=h employee.user.is_admin? %></td>
       <td><%=link_to "View" ,employee %></td>
       <td><%=link_to "Delete",employee,:confirm => 'Are you sure?', :method => :delete %></td>
-
-
   </tr>
 <% end %>
 </table>

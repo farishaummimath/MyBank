@@ -10,12 +10,13 @@ class BankAccountsController < ApplicationController
     :only =>
     [:show,:withdraw_deposit,:account_closure,:approve_closure,:suspend_account,:revert_suspend,:reject_closure,:revert_closure,:transactions_page, :bank_transactions_statement,:beneficiaries_page,:transfer,:destroy]
   before_filter :check_if_suspended, :only => [:transactions_page]
+  
   def index
     @bank_accounts = BankAccount.all  
   end
   
   def show_bank_accounts
-      @bank_accounts = BankAccount.search(params[:name], params[:nationality],params[:account_number]).paginate :page => params[:page],:order => ['created_at DESC']
+     @bank_accounts = BankAccount.search(params[:name], params[:nationality],params[:account_number]).paginate :page => params[:page],:order => ['created_at DESC']
      if @bank_accounts.present?
         render :update do |page|
               page.replace_html :result, :partial => 'show_bank_accounts', :locals =>{:bank_accounts =>@bank_accounts}
@@ -31,18 +32,11 @@ class BankAccountsController < ApplicationController
     
   end
   
-  def transactions_page
-    
-    @transactions = @bank_account.bank_transactions
-    @beneficiaries= @bank_account.beneficiaries.all(:conditions =>["status =?","approved"])
-   
-  end
-  
-  def bank_transactions_statement
+  def transactions_page    
     @transactions = @bank_account.bank_transactions
     @beneficiaries= @bank_account.beneficiaries.all(:conditions =>["status =?","approved"])
   end
-  
+      
   def customer_transactions_statement
     render :update do |page|
          page.replace_html :statements, :partial => 'statements', :locals =>{:transactions =>@transactions}
@@ -75,8 +69,7 @@ class BankAccountsController < ApplicationController
     @beneficiaries= @bank_account.beneficiaries
   end
   
-  def withdraw_deposit
-      
+  def withdraw_deposit     
     if @bank_account.active_status == true
       @transaction = BankAccount.deposit(params[:amount],params[:id]) if params[:trans_type] == "Deposit"           
       @transaction = BankAccount.withdraw(params[:amount],params[:id]) if params[:trans_type] == "Withdraw" 
@@ -184,7 +177,7 @@ class BankAccountsController < ApplicationController
         flash[:error] = "Closure cannot  be done"
       end
     end
-        redirect_to :back
+      redirect_to :back
   end
   
   def suspend_account   
@@ -219,10 +212,10 @@ class BankAccountsController < ApplicationController
     end
     @transactions = @bank_account.bank_transactions.all(
       :conditions => ['CAST(created_at AS DATE) BETWEEN CAST(? AS DATE) AND 
-CAST(? AS DATE)',@start_date,@end_date])
+CAST(? AS DATE)',@start_date,@end_date],:order => ['created_at DESC'])
   end
-  private
   
+  private  
   def find_account
       @bank_account = BankAccount.find(params[:id])    
   end

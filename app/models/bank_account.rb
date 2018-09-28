@@ -27,7 +27,7 @@ class BankAccount < ActiveRecord::Base
   def self.withdraw(amount,ba_id)    
     ActiveRecord::Base.transaction do
       if amount.present? && amount.to_i != 0
-       @bank_account = BankAccount.find(ba_id)
+       @bank_account = find(ba_id)
        curr=@bank_account.current_balance
         if(@bank_account.current_balance >= amount.to_i)
           if @bank_account.update_attributes(:current_balance => curr - amount.to_i)
@@ -50,7 +50,7 @@ class BankAccount < ActiveRecord::Base
  end  
   
   def self.deposit(amount,ba_id)
-    @bank_account = BankAccount.find(ba_id)
+    @bank_account = find(ba_id)
     curr= @bank_account.current_balance
     ActiveRecord::Base.transaction do
       if amount.present? && amount.to_i != 0

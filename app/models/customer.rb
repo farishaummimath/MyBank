@@ -20,7 +20,8 @@ class Customer < ActiveRecord::Base
     :styles => {:medium => "120x60>"}
 	validates_attachment_content_type :signature, 
     :content_type => ['image/jpeg','image/png']
-  
+  named_scope :search_application, lambda{|acc| {:conditions => ["application_number = ?","#{acc}"]}}
+
   before_update :update_user
   before_create :add_user
 
@@ -30,34 +31,23 @@ class Customer < ActiveRecord::Base
   end
   
   def update_user
-    user = self.user
     user.set_fields(self.first_name, self.last_name) 
   end
- 
-  
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['application_number = ?', "#{search}"])
-    else
-      return nil
-    end
-  end
-  
+    
   def self.create_account(customer_id,user)
     if customer_id && user
      unique_number =15.times.map { (0..9).to_a.choice }.join
      num = unique_number.to_i
      bank_account = BankAccount.new(:customer_id => customer_id,
        :account_number => num,:opening_balance => 0, :current_balance => 0)
-     if bank_account.save 
+      if bank_account.save 
         if user.update_attributes(:is_active => true)  
-        return bank_account
-      else
-      return nil
-     end
+          return bank_account
+        else
+          return nil
+        end
+      end
     end
   end
- end
- 
  
 end

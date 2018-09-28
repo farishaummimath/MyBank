@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     
   end
  
-
   def login
     user = User.authenticate(params[:user])
     if user 
@@ -29,24 +28,20 @@ class UsersController < ApplicationController
   end
   
   def show
-
-    @user= User.find(params[:id])
-    
-    
+    @user= User.find(params[:id])   
   end
   
-  def logout
-    
+  def logout    
     session[:user_id] = nil
     redirect_to root_url, :notice => "Logged out!"
   end
   
-
   def destroy
     @user= User.find(params[:id])
     if @user.destroy
       flash[:notice] = "user removed"
     else
+      flash[:notice] = "user cannot be removed"
     end  
     redirect_to users_path
   end

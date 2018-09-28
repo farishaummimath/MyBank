@@ -1,9 +1,9 @@
 <p>Check status</p>
-
-<% form_tag view_status_path, :method => 'get' do %>
-  <p>
+ <% form_remote_tag :url=>{:controller => "customers", :action => "show_application_status"}, :class=>"form-horizontal" do %>
+ <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
-
+<div id="status">  
+</div>

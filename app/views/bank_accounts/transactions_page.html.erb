@@ -25,13 +25,10 @@
   <%= f.text_field :amount %>
   <%= f.select :to_bank_account, options_for_select(@beneficiaries.map {|c| [(c.beneficiary_name),c.id]}),{:include_blank => "Choose Beneficiary"}%>
   <%= f.submit "Submit" %>
-
- </div>   
+</div>   
   
 <% end %>
-
 <h4>Search Statements</h4>
-  
  <% form_remote_tag :url=>{:controller => "bank_accounts", :action => "customer_transactions_statement"}, :class=>"form-horizontal" do %>
   <div class="form-group">
     <%= label_tag :start_date%>

@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   
   def self.authenticate(login_cred)
     
-  	user = User.find_by_username(login_cred[:username])
+  	user = find_by_username(login_cred[:username])
     if login_cred[:password].present?
       if (user) && (user.has_password?(login_cred[:password]))
         return user

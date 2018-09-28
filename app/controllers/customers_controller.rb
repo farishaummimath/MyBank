@@ -5,7 +5,6 @@ class CustomersController < ApplicationController
   before_filter :find_customer, :only => [:approve,:reject, :revert,:edit,:show, :update, :destroy]
   def index
     @customers = Customer.paginate :page => params[:page], :order => 'updated_at DESC'
-
   end
 
   def new
@@ -27,7 +26,12 @@ class CustomersController < ApplicationController
   def check_application_status
   end
   def show_application_status
-    @customers = Customer.search(params[:search])
+    @customers = Customer.search_application(params[:search])
+    if @customers
+        render :update do |page|
+            page.replace_html :status, :partial => 'show_application_status', :locals =>{:customers =>@customers}
+        end     
+    end  
   end
   def approve
     if @customer.update_attributes(:application_status => "approved")
@@ -63,13 +67,10 @@ class CustomersController < ApplicationController
     redirect_to customers_path
   end
         
-  def edit
-
-    
+  def edit    
   end
 
   def update
-
     if @customer.update_attributes(params[:customer])
       flash[:success] = "Customer updated."
       redirect_to customer_path
@@ -91,11 +92,9 @@ class CustomersController < ApplicationController
 
   end
   
-  def beneficiaries
-    
+  def beneficiaries    
     @bank_account = current_user.record.bank_account
-    @beneficiaries = @bank_account.beneficiaries         
-    
+    @beneficiaries = @bank_account.beneficiaries             
   end
   
   def create_beneficiary

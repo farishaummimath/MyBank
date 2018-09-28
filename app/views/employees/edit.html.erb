@@ -7,8 +7,7 @@
   <%= f.error_messages %>
   <div class="form-group">
       <%= f.label :first_name %><br/>
-      <%= f.text_field :first_name %>
-            
+      <%= f.text_field :first_name %>            
   </div>    
   <div class="form-group">
     <%= f.label :middle_name %><br/>
@@ -34,15 +33,16 @@
     <%= f.label :contact_number %><br/>
     <%= f.text_field :contact_number %>
   </div>
-<div class="form-group">
-
-<%= f.label :Nationality %><br/>
-<%= f.select:nationality, options_for_select(Nationality.all.map {|n| [n.name]}),{:include_blank => "Choose Nationality"}%>
-                </div>   
-<div class="form-group">
-     <%= f.label :photo, "Upload Profile photo" %>
-     <%= f.file_field :photo %>
+  <div class="form-group">
+  <%= f.label :Nationality %><br/>
+  <%= f.select:nationality, options_for_select(Nationality.all.map {|n| [n.name]},:selected => @employee.nationality),
+    {:include_blank => "Choose-Nationality"} %>
+  </div>   
+  <div class="form-group">
+       <%= f.label :photo, "Upload Profile photo" %>
+       <%= f.file_field :photo %>
   </div>
+
 <%= f.submit "Update Profile", :class => "btn btn-large btn-primary" %>
 <% end %>
 

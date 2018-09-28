@@ -25,11 +25,11 @@
 
       <td><%=h customer.application_number %></td>
       <td><%=h customer.application_status %></td>
-            <td><%=link_to "View" ,customer %></td>
-              <% if permitted_to? :destroy, :customers %>
-
-                  <td><%=link_to "Delete",customer,:confirm => 'Are you sure?', :method => :delete %></td>
-              <% end %>
+      <td><%=link_to "View" ,customer %></td>
+        <% if permitted_to? :destroy, :customers %>
+      <td><%=link_to "Delete",customer,:confirm => 'Are you sure?', 
+  :method => :delete %></td>
+        <% end %>
 
   </tr>
 <% end %>
